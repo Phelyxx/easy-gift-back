@@ -1,0 +1,1089 @@
+{
+	"info": {
+		"_postman_id": "7de29f99-b54f-4383-8a27-bd7f47ad95d2",
+		"name": "Tiendas-localizacion",
+		"description": "Documentación para la asociación de tiendas con localizacion.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21289193"
+	},
+	"item": [
+		{
+			"name": "Add a tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"tienda_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe.png\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":301321\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tiendas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a tienda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe.png\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":301321\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tiendas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"143as3g6-uj32iSsdAW-E2123ASD-dsaEhgu\", \r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe.png\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":301321\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a localizacion 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"localizacion_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"latitud\":32.12,\r\n    \"longitud\":69.1305,\r\n    \"direccion\":\"Calle 32 # 22-3 Local 3447 - 138 - 139\",\r\n    \"ciudad\":\"Bogota D.C\",\r\n    \"pais\":\"Colombia\",\r\n    \"codigoPostal\":\"113482\",\r\n    \"esActual\": true   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/localizaciones",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"localizaciones"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a localizacion",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"latitud\":14.1912,\r\n    \"longitud\":29.1305,\r\n    \"direccion\":\"Calle 20 # 82-52 Local 437 - 138 - 139\",\r\n    \"ciudad\":\"Bogota D.C\",\r\n    \"pais\":\"Colombia\",\r\n    \"codigoPostal\":\"110182\",\r\n    \"esActual\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/localizaciones",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"localizaciones"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "\r\n{\r\n    \"id\": \"b4584528-7a09-4634-80d8-2bc5e28d0cce\",\r\n    \"latitud\":14.1912,\r\n    \"longitud\":29.1305,\r\n    \"direccion\":\"Calle 20 # 82-52 Local 437 - 138 - 139\",\r\n    \"ciudad\":\"Bogota D.C\",\r\n    \"pais\":\"Colombia\",\r\n    \"codigoPostal\":\"110182\",\r\n    \"esActual\":true\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a localizacion 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"localizacion_id_2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"latitud\":24.1312,\r\n    \"longitud\":19.1305,\r\n    \"direccion\":\"Calle 2 # 2-3 Local 37 - 138 - 139\",\r\n    \"ciudad\":\"Medellin\",\r\n    \"pais\":\"Colombia\",\r\n    \"codigoPostal\":\"1182\",\r\n    \"esActual\": true   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/localizaciones",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"localizaciones"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a localizacion",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"latitud\":14.1912,\r\n    \"longitud\":29.1305,\r\n    \"direccion\":\"Calle 20 # 82-52 Local 437 - 138 - 139\",\r\n    \"ciudad\":\"Bogota D.C\",\r\n    \"pais\":\"Colombia\",\r\n    \"codigoPostal\":\"110182\",\r\n    \"esActual\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/localizaciones",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"localizaciones"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "\r\n{\r\n    \"id\": \"b4584528-7a09-4634-80d8-2bc5e28d0cce\",\r\n    \"latitud\":14.1912,\r\n    \"longitud\":29.1305,\r\n    \"direccion\":\"Calle 20 # 82-52 Local 437 - 138 - 139\",\r\n    \"ciudad\":\"Bogota D.C\",\r\n    \"pais\":\"Colombia\",\r\n    \"codigoPostal\":\"110182\",\r\n    \"esActual\":true\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a localizacion to a tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/{{localizacion_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"{{tienda_id}}",
+						"localizacion",
+						"{{localizacion_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a localizacion to a tienda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/{{localizacion_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"{{tienda_id}}",
+								"localizacion",
+								"{{localizacion_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "  \r\n{\r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe.png\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":301321,\r\n    \"ubicacion\":[\r\n        {\r\n        \"latitud\":14.1912,\r\n        \"longitud\":29.1305,\r\n        \"direccion\":\"Calle 20 # 82-52 Local 437 - 138 - 139\",\r\n        \"ciudad\":\"Bogota D.C\",\r\n        \"pais\":\"Colombia\",\r\n        \"codigoPostal\":\"110182\",\r\n        \"esActual\":true\r\n        }\r\n    ],\r\n    \"regalos\":[ ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid  localizacion to a tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The localizacion with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"{{tienda_id}}",
+						"localizacion",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an invalid  localizacion to a tienda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"{{tienda_id}}",
+								"localizacion",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The artwork with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a localizacion to an invalid tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The tienda with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/00000000-0000-0000-0000-000000000000/localizacion/{{localizacion_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"00000000-0000-0000-0000-000000000000",
+						"localizacion",
+						"{{localizacion_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a localizacion to an invalid tienda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/00000000-0000-0000-0000-000000000000/localizacion/{{localizacion_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"00000000-0000-0000-0000-000000000000",
+								"localizacion",
+								"{{localizacion_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The artwork with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a localizacion of a tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/{{localizacion_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"{{tienda_id}}",
+						"localizacion",
+						"{{localizacion_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a localizacion of a tienda",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/{{localizacion_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"{{tienda_id}}",
+								"localizacion",
+								"{{localizacion_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "\r\n{\r\n    \"id\": \"b4584528-7a09-4634-80d8-2bc5e28d0cce\",\r\n    \"latitud\":14.1912,\r\n    \"longitud\":29.1305,\r\n    \"direccion\":\"Calle 20 # 82-52 Local 437 - 138 - 139\",\r\n    \"ciudad\":\"Bogota D.C\",\r\n    \"pais\":\"Colombia\",\r\n    \"codigoPostal\":\"110182\",\r\n    \"esActual\":true\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid localizacion of a tienda Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The localizacion with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"{{tienda_id}}",
+						"localizacion",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid localizacion of a tienda Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"{{tienda_id}}",
+								"localizacion",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The artwork with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a localizacion of an invalid tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The tienda with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/00000000-0000-0000-0000-000000000000/localizacion/{{localizacion_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"00000000-0000-0000-0000-000000000000",
+						"localizacion",
+						"{{localizacion_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a localizacion of an invalid tienda",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/00000000-0000-0000-0000-000000000000/localizacion/{{localizacion_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"00000000-0000-0000-0000-000000000000",
+								"localizacion",
+								"{{localizacion_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The artwork with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a localizacion non-associated to a tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The localizacion with the given id is not associated to the tienda\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/{{localizacion_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"{{tienda_id}}",
+						"localizacion",
+						"{{localizacion_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a localizacion non-associated to a tienda",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/{{localizacion_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"{{tienda_id}}",
+								"localizacion",
+								"{{localizacion_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 412,\r\n   \"message\": \"The artwork with the given id is not associated to the museum\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a localizacion non-associated to a tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The localizacion with the given id is not associated to the tienda\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/{{localizacion_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"{{tienda_id}}",
+						"localizacion",
+						"{{localizacion_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a localizacion non-associated to a tienda",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/{{localizacion_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"{{tienda_id}}",
+								"localizacion",
+								"{{localizacion_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 412,\r\n   \"message\": \"The localizacion with the given id is not associated to the tienda\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a localizacion of a tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/{{localizacion_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"{{tienda_id}}",
+						"localizacion",
+						"{{localizacion_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a localizacion of a tienda",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/{{localizacion_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"{{tienda_id}}",
+								"localizacion",
+								"{{localizacion_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a localizacion of an invalid tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The tienda with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/00000000-0000-0000-0000-000000000000/localizacion/{{localizacion_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"00000000-0000-0000-0000-000000000000",
+						"localizacion",
+						"{{localizacion_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a localizacion of an invalid tienda",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/00000000-0000-0000-0000-000000000000/localizacion/{{localizacion_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"00000000-0000-0000-0000-000000000000",
+								"localizacion",
+								"{{localizacion_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The museum with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid localizacion of a tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The localizacion with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"{{tienda_id}}",
+						"localizacion",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an invalid localizacion of a tienda",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/{{tienda_id}}/localizacion/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"{{tienda_id}}",
+								"localizacion",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The museum with the given id was not found\"\r\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

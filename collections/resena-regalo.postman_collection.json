@@ -1,0 +1,998 @@
+{
+	"info": {
+		"_postman_id": "e7f66aa6-1147-4f83-b290-b59c6b8a3f21",
+		"name": "resena-regalo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12491341"
+	},
+	"item": [
+		{
+			"name": "Add a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"regalo_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos"
+					]
+				},
+				"description": "This request creates a new gift. The API returns the created resource with the assigned id."
+			},
+			"response": []
+		},
+		{
+			"name": "add resena",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"resena_id\", data.id);\r",
+							"pm.globals.set(\"resena_id_f\", 0);\r",
+							"\r",
+							"pm.test('Status code is 201', function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Observaciones\",\r\n    \"descripcion\": \"El producto es muy lindo, tamaño adecuadi :V\",\r\n    \"fecha\": \"2020-06-06\",\r\n    \"calificacion\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/resena",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resena"
+					]
+				},
+				"description": "La peticion de una nueva reseña, La api da crea el recurso con la nueva id."
+			},
+			"response": []
+		},
+		{
+			"name": "add resena a regalo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/resenas/{{resena_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"resenas",
+						"{{resena_id}}"
+					]
+				},
+				"description": "La peticion de añadir una reseña a un producto, la api añade la reseña con el id dado al producto con el id dado."
+			},
+			"response": []
+		},
+		{
+			"name": "add resena inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The resena with the given id was not found\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/resenas/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"resenas",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "La peticion de añadir una reseña inexistente a un producto, la api indica que no existe la reseña dada ."
+			},
+			"response": []
+		},
+		{
+			"name": "add resena a regalo inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The regalo with the given id was not found\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/resenas/{{resena_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"resenas",
+						"{{resena_id}}"
+					]
+				},
+				"description": "La peticion de añadir una reseña a un producto inexistente, la api indica que el producto no existe."
+			},
+			"response": []
+		},
+		{
+			"name": "get resena regalo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/resenas/{{resena_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"resenas",
+						"{{resena_id}}"
+					]
+				},
+				"description": "La peticion de obtiene una reseña de producto, la api muestra la reseña asociada al regalo."
+			},
+			"response": []
+		},
+		{
+			"name": "get resena inexistente de regalo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The resena with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/resenas/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"resenas",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get resena de regalo inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The regalo with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/resenas/{{resena_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"resenas",
+						"{{resena_id}}"
+					]
+				},
+				"description": "La peticion de obtiene una reseña de un regalo inexistente, la api muestra que el regalo no exisrte."
+			},
+			"response": []
+		},
+		{
+			"name": "Add a gift Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"regalo_id_noasociada\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos"
+					]
+				},
+				"description": "This request creates a new gift. The API returns the created resource with the assigned id."
+			},
+			"response": []
+		},
+		{
+			"name": "add resena Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"resena_id_noasociada\", data.id);\r",
+							"pm.globals.set(\"resena_id_f\", 0);\r",
+							"\r",
+							"pm.test('Status code is 201', function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Observaciones\",\r\n    \"descripcion\": \"El producto es muy lindo, tamaño adecuadi :V\",\r\n    \"fecha\": \"2020-06-06\",\r\n    \"calificacion\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/resena",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resena"
+					]
+				},
+				"description": "La peticion de una nueva reseña, La api da crea el recurso con la nueva id."
+			},
+			"response": []
+		},
+		{
+			"name": "get resena no asociada a el regalo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The resena with the given id is not associated to the regalo\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id_noasociada}}/resenas/{{resena_id_noasociada}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id_noasociada}}",
+						"resenas",
+						"{{resena_id_noasociada}}"
+					]
+				},
+				"description": "La peticion de obtiene una reseña de un regalo al que no esat asociada, la api muestra que el regalo no estan asoaciadas."
+			},
+			"response": []
+		},
+		{
+			"name": "get resena del regalo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/resenas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"resenas"
+					]
+				},
+				"description": "Se genera una peticon de obtener todas las reseñas de un regalio dado, la api retorna un json con una lista de las reseñas."
+			},
+			"response": []
+		},
+		{
+			"name": "get resena de regalo inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The regalo with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/resenas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"resenas"
+					]
+				},
+				"description": "Se genera una peticon de obtener todas las reseñas de un regalo inexistente, la api retorna un error que dice que el regalo no existe"
+			},
+			"response": []
+		},
+		{
+			"name": "add resena Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"resena_id_2\", data.id);\r",
+							"pm.globals.set(\"resena_id_f\", 0);\r",
+							"\r",
+							"pm.test('Status code is 201', function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Observaciones\",\r\n    \"descripcion\": \"El producto es muy lindo, tamaño adecuadi :V\",\r\n    \"fecha\": \"2020-06-06\",\r\n    \"calificacion\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/resena",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resena"
+					]
+				},
+				"description": "La peticion de una nueva reseña, La api da crea el recurso con la nueva id."
+			},
+			"response": []
+		},
+		{
+			"name": "update resena de regalo Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n    \"titulo\": \"Observaciones\",\r\n    \"descripcion\": \"El producto es muy lindo, tamaño adecuadi :V\",\r\n    \"fecha\": \"2020-06-06\",\r\n    \"calificacion\": 10\r\n}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/resenas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"resenas"
+					]
+				},
+				"description": "Se genera una peticon para actualizar la reseñas con un id dado de un regalio dado, la api la reseña con la informacion actualizada."
+			},
+			"response": []
+		},
+		{
+			"name": "update resena iexistente de regalo Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The resena with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/resenas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"resenas"
+					]
+				},
+				"description": "Se genera una peticon para actualizar la reseñas inexistente de un regalio dado, la api notifica que la reseña no existe."
+			},
+			"response": []
+		},
+		{
+			"name": "update resena de regalo inexistente Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The regalo with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"0\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/resenas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"resenas"
+					]
+				},
+				"description": "Se genera una peticon para actualizar la reseñas de un regalio inexistente , la api notifica que el regalo no existe."
+			},
+			"response": []
+		},
+		{
+			"name": "add resena Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"resena_id_1\", data.id);\r",
+							"pm.globals.set(\"resena_id_f\", 0);\r",
+							"\r",
+							"pm.test('Status code is 201', function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"ALgo mas\",\r\n    \"descripcion\": \"El producto es muy lindo\",\r\n    \"fecha\": \"2020-06-05\",\r\n    \"calificacion\": 9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/resena",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resena"
+					]
+				},
+				"description": "La peticion de una nueva reseña, La api da crea el recurso con la nueva id."
+			},
+			"response": []
+		},
+		{
+			"name": "Add a gift Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"regalo_id_1\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"ChocolatesRocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 1000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos"
+					]
+				},
+				"description": "This request creates a new gift. The API returns the created resource with the assigned id."
+			},
+			"response": []
+		},
+		{
+			"name": "add resena a regalo Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id_1}}/resenas/{{resena_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id_1}}",
+						"resenas",
+						"{{resena_id_1}}"
+					]
+				},
+				"description": "La peticion de añadir una reseña a un producto, la api añade la reseña con el id dado al producto con el id dado."
+			},
+			"response": []
+		},
+		{
+			"name": "delet resena regalo Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id_1}}/resenas/{{resena_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id_1}}",
+						"resenas",
+						"{{resena_id_1}}"
+					]
+				},
+				"description": "Se genera una peticion de eliminar una reseña de un regalo, la api elimina la reseña del regalo y no retorna mas informacionm."
+			},
+			"response": []
+		},
+		{
+			"name": "delet resena inexistente de regalo Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The resena with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/resenas/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"resenas",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Se genera una peticion de eliminar una reseña inexistente de un regalo, la api notifica que la reseña no existe."
+			},
+			"response": []
+		},
+		{
+			"name": "delet resena de regalo inexistente Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The regalo with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/resenas/{{resena_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"resenas",
+						"{{resena_id}}"
+					]
+				},
+				"description": "Se genera una peticion de eliminar una reseña de un regalo inexistente , la api notifica que el regalo no existe."
+			},
+			"response": []
+		},
+		{
+			"name": "delet resena de regalo no asociados Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The resena with the given id is not associated to the regalo\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/resenas/{{resena_id_noasociada}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"resenas",
+						"{{resena_id_noasociada}}"
+					]
+				},
+				"description": "Se hace la peticion de eliminar una reseña de un regalo al que no esta asociado, la api notifica que esta peticion es erronea"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": " http://localhost:3000/api/v1"
+		}
+	]
+}

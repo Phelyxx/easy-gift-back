@@ -1,0 +1,568 @@
+{
+	"info": {
+		"_postman_id": "ce4120fe-da55-47ca-bf1d-a115e6549d67",
+		"name": "Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15053500"
+	},
+	"item": [
+		{
+			"name": "Agregar usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"usuario_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"nombre\": \"Juana\",\n   \"apellido\": \"Castro\",\n   \"email\": \"juana.castro@gmail.com\",\n   \"bio\": \"Me gusta la astronomia y jugar con mis perros\",\n   \"usuario\": \"juanacastro01\",\n   \"edad\": 21,\n   \"cumpleanios\" : \"2001-01-15\",\n   \"rutaFotoPerfil\": \"https://c8.alamy.com/zooms/9/52c3ea49892f4e5789b31cadac8aa969/2gefnr1.jpg\",\n   \"rutaFotoPortada\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\n   \"genero\": \"Femenino\",\n   \"presupuesto\": 300000,\n   \"disponibilidadDeTiempo\": \"Poco\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/usuarios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"nombre\": \"Juana\",\n   \"apellido\": \"Castro\",\n   \"bio\": \"Me gusta la astronomia y jugar con mis perros\",\n   \"usuario\": \"juanacastro01\",\n   \"cumpleaños\": \"2000-12-10\",\n   \"edad\": 21,\n   \"rutaFotoPerfil\": \"user/fotos/fotoPerfil.jpg\",\n   \"rutaFotoPortada\": \"user/fotos/fotoPortada.jpg\",\n   \"genero\": \"Femenino\",\n   \"presupuesto\": 300000,\n   \"disponibilidadTiempo\": \"Poco\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"310b0872-1d9a-4575-8bb5-8f14dfb86c1c\",\n    \"nombre\": \"Juana\",\n    \"apellido\": \"Castro\",\n    \"bio\": \"Me gusta la astronomia y jugar con mis perros\",\n    \"usuario\": \"juanacastro01\",\n    \"cumpleaños\": \"2000-12-10\",\n    \"edad\": 21,\n    \"rutaFotoPerfil\": \"user/fotos/fotoPerfil.jpg\",\n    \"rutaFotoPortada\": \"user/fotos/fotoPortada.jpg\",\n    \"genero\": \"Femenino\",\n    \"presupuesto\": 300000,\n    \"disponibilidadTiempo\": \"Poco\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los usuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of users > ' + 0, function () {",
+							"   var data = pm.response.json()",
+							"   pm.expect(data.length).to.greaterThan(0)",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los usuarios",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n    \"id\": 1,\n   \"nombre\": \"Juana\",\n   \"apellido\": \"Castro\",\n   \"bio\": \"Me gusta la astronomia y jugar con mis perros\",\n   \"usuario\": \"juanacastro01\",\n   \"cumpleaños\": \"2000-12-10\",\n   \"edad\": 21,\n   \"rutaFotoPerfil\": \"user/fotos/fotoPerfil.jpg\",\n   \"rutaFotoPortada\": \"user/fotos/fotoPortada.jpg\",\n   \"genero\": \"Femenino\",\n   \"presupuesto\": 300000,\n   \"disponibilidadTiempo\": \"Poco\",\n   \"ubicación actual\":\n   {\n       \"latitud\": \"4° 35'56' N\",\n       \"longitud\": \"74°04'51 O\",\n       \"direccion\": \"Calle 7 #16-21\",\n       \"ciudad\": \"Chia\",\n       \"Pais\": \"Colombia\",\n       \"CodigoPostal\": \"\"\n\n   },\n   \"categorias\": [\n       {\n           \"id\": 10,\n           \"nombre\": \"Libros\"\n       }\n   ]\n    },\n    {\n    \"id\": 2,\n   \"nombre\": \"Luis\",\n   \"apellido\": \"Villa\",\n   \"bio\": \"Me gusta el fútbol\",\n   \"usuario\": \"villaLuis44\",\n   \"cumpleaños\": \"2001-01-13\",\n   \"edad\": 21,\n   \"rutaFotoPerfil\": \"user/fotos/fotoPerfil.jpg\",\n   \"rutaFotoPortada\": \"user/fotos/fotoPortada.jpg\",\n   \"genero\": \"Masculino\",\n   \"presupuesto\": 500000,\n   \"disponibilidadTiempo\": \"Medio\",\n   \"ubicación actual\":\n   {\n       \"latitud\": \"4° 35'56' N\",\n       \"longitud\": \"74°04'51 O\",\n       \"direccion\": \"Calle 1 #28-166\",\n       \"ciudad\": \"Bogotá\",\n       \"Pais\": \"Colombia\",\n       \"CodigoPostal\": \"\"\n\n   },\n   \"categorias\": [\n       {\n           \"id\": 12,\n           \"nombre\": \"Deportes\"\n       }\n   ]\n    }\n\n\n    \n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios/{{usuarioid}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios",
+								"{{usuarioid}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"nombre\": \"Luis\",\n    \"apellido\": \"Villa\",\n    \"bio\": \"Me gusta el fútbol\",\n    \"usuario\": \"villaLuis44\",\n    \"cumpleaños\": \"2001-01-13\",\n    \"edad\": 21,\n    \"rutaFotoPerfil\": \"user/fotos/fotoPerfil.jpg\",\n    \"rutaFotoPortada\": \"user/fotos/fotoPortada.jpg\",\n    \"genero\": \"Masculino\",\n    \"presupuesto\": 500000,\n    \"disponibilidadTiempo\": \"Medio\",\n    \"ubicación actual\": {\n        \"latitud\": \"4° 35'56' N\",\n        \"longitud\": \"74°04'51 O\",\n        \"direccion\": \"Calle 1 #28-166\",\n        \"ciudad\": \"Bogotá\",\n        \"Pais\": \"Colombia\",\n        \"CodigoPostal\": \"\"\n    },\n    \"categorias\": [\n        {\n            \"id\": 12,\n            \"nombre\": \"Deportes\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un usuario invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El usuario con el id dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un usuario invalido",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n   \"statusCode\": 404,\n   \"message\": \"El usuario con el id dado no fue encontrado\"\n}\n"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"nombre\": \"Juana\",\n   \"apellido\": \"Castro\",\n   \"email\": \"juana.castro@gmail.com\",\n   \"bio\": \"Me gusta la astronomia y jugar con mis perros\",\n   \"usuario\": \"juanacastro0001\",\n   \"edad\": 21,\n   \"cumpleanios\" : \"2001-01-15\",\n   \"rutaFotoPerfil\": \"https://c8.alamy.com/zooms/9/52c3ea49892f4e5789b31cadac8aa969/2gefnr1.jpg\",\n   \"rutaFotoPortada\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\n   \"genero\": \"Femenino\",\n   \"presupuesto\": 500000,\n   \"disponibilidadDeTiempo\": \"Poco\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un usuario",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n   \"nombre\": \"Juana\",\n   \"apellido\": \"Castro\",\n   \"bio\": \"Me gusta la astronomia y jugar con mis perros\",\n   \"usuario\": \"juanacastro02\",\n   \"cumpleaños\": \"2000-12-10\",\n   \"edad\": 21,\n   \"rutaFotoPerfil\": \"user/fotos/fotoPerfil.jpg\",\n   \"rutaFotoPortada\": \"user/fotos/fotoPortada.jpg\",\n   \"genero\": \"Femenino\",\n   \"presupuesto\": 300000,\n   \"disponibilidadTiempo\": \"Poco\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuarios/{{usuario_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"cd8412fa-a9e1-4b68-8d1c-be316b1e19a3\",\n    \"nombre\": \"Juana\",\n    \"email\": \"juana.castro@gmail.com\",\n    \"bio\": \"Me gusta la astronomia y jugar con mis perros\",\n    \"usuario\": \"juanacastro0001\",\n    \"cumpleanios\": \"2001-01-15\",\n    \"edad\": 21,\n    \"rutaFotoPerfil\": \"https://c8.alamy.com/zooms/9/52c3ea49892f4e5789b31cadac8aa969/2gefnr1.jpg\",\n    \"rutaFotoPortada\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\n    \"genero\": \"Femenino\",\n    \"presupuesto\": 500000,\n    \"disponibilidadDeTiempo\": \"Poco\",\n    \"apellido\": \"Castro\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar usuario invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El usuario con el id dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"nombre\": \"Juana\",\n   \"apellido\": \"Castro\",\n   \"email\": \"juana.castro@gmail.com\",\n   \"bio\": \"Me gusta la astronomia y jugar con mis perros\",\n   \"usuario\": \"juanacastro01\",\n   \"edad\": 21,\n   \"cumpleanios\" : \"2001-01-15\",\n   \"rutaFotoPerfil\": \"https://c8.alamy.com/zooms/9/52c3ea49892f4e5789b31cadac8aa969/2gefnr1.jpg\",\n   \"rutaFotoPortada\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\n   \"genero\": \"Femenino\",\n   \"presupuesto\": 300000,\n   \"disponibilidadDeTiempo\": \"Poco\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar usuario invalido",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n   \"nombre\": \"Juana\",\n   \"apellido\": \"Castro\",\n   \"bio\": \"Me gusta la astronomia y jugar con mis perros\",\n   \"usuario\": \"juanacastro02\",\n   \"cumpleaños\": \"2000-12-10\",\n   \"edad\": 21,\n   \"rutaFotoPerfil\": \"user/fotos/fotoPerfil.jpg\",\n   \"rutaFotoPortada\": \"user/fotos/fotoPortada.jpg\",\n   \"genero\": \"Femenino\",\n   \"presupuesto\": 300000,\n   \"disponibilidadTiempo\": \"Poco\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El usuario con el id dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar usuario",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios/{{usuarioid}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios",
+								"{{usuarioid}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar usuario invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El usuario con el id dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar usuario invalido",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El usuario con el id dado no fue encontrado\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

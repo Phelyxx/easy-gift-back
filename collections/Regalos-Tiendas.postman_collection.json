@@ -1,0 +1,1332 @@
+{
+	"info": {
+		"_postman_id": "577bd8a2-ca18-409f-b0f2-6d992ef2b779",
+		"name": "Regalos-Tiendas",
+		"description": "Documentation of the Regalos-Tiendas relation. That is, the stores in which gifts are sold.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11506868"
+	},
+	"item": [
+		{
+			"name": "Create store 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"tienda_id_1\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Éxito Unicentro\",\n    \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n    \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona\",\n    \"paginaWeb\": \"https://www.exito.com/\",\n    \"telefono\": 2138208\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tiendas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas"
+					]
+				},
+				"description": "This request creates a new store. It is necessary to test the petitions following up. Once created, the store's id is saved in the {tienda_id_1}} variable."
+			},
+			"response": [
+				{
+					"name": "Create store 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Éxito Unicentro\",\n    \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n    \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona\",\n    \"paginaWeb\": \"https://www.exito.com/\",\n    \"telefono\": \"2138208\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tiendas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\",\n    \"nombre\": \"Éxito Unicentro\",\n    \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n    \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona\",\n    \"paginaWeb\": \"https://www.exito.com/\",\n    \"telefono\": \"2138208\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create store 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"tienda_id_2\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Pepe Ganga Unicentro\",\n    \"imagen\": \"https://i0.wp.com/cdn.pinkermoda.com/pinkermoda/2016/01/Pepeganga.jpg?ssl=1\",\n    \"descripcion\": \"El Pepe Ganga de Unicentro es la tienda de juguetes mas completa de tu zona, no dudes en venir\",\n    \"paginaWeb\": \"https://www.pepeganga.com/\",\n    \"telefono\": 2138209  \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tiendas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas"
+					]
+				},
+				"description": "This request creates a new store. It is necessary to test the petitions following up. Once created, the store's id is saved in the {tienda_id_2}} variable."
+			},
+			"response": [
+				{
+					"name": "Create store 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Pepe Ganga Unicentro\",\n    \"imagen\": \"https://i0.wp.com/cdn.pinkermoda.com/pinkermoda/2016/01/Pepeganga.jpg?ssl=1\",\n    \"descripcion\": \"El Pepe Ganga de Unicentro es la tienda de juguetes mas completa de tu zona, no dudes en venir\",\n    \"paginaWeb\": \"https://www.pepeganga.com/\",\n    \"telefono\": \"2138208\"  \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tiendas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"28f05d0e-1275-11ed-861d-0242ac120028\",\n    \"nombre\": \"Pepe Ganga Unicentro\",\n    \"imagen\": \"https://i0.wp.com/cdn.pinkermoda.com/pinkermoda/2016/01/Pepeganga.jpg?ssl=1\",\n    \"descripcion\": \"El Pepe Ganga de Unicentro es la tienda de juguetes mas completa de tu zona, no dudes en venir\",\n    \"paginaWeb\": \"https://www.pepeganga.com/\",\n    \"telefono\": \"2138208\"  \n}"
+				}
+			]
+		},
+		{
+			"name": "Create a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"regalo_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos"
+					]
+				},
+				"description": "This request creates a new gift. It is necessary to test the petitions following up. Once created, the gift's id is saved in the {regalo_id}} variable."
+			},
+			"response": [
+				{
+					"name": "Create a gift",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a store to a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/{{tienda_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"tiendas",
+						"{{tienda_id_1}}"
+					]
+				},
+				"description": "This request adds a store to a gift. That is, the gift will be now sold in a new store. The API returns the gift with the given {{regalo_id}} with the recently added store, with id {{tienda_id}}."
+			},
+			"response": [
+				{
+					"name": "Add a store to a gift",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/{{tienda_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"tiendas",
+								"{{tienda_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0286ac120032\",\n    \"nombre\": \"Ame & Lulu Game On Tennis Backpack\",\n    \"descripcion\": \" It's game time with the new and improved Game On Tennis Backpack. Made out of a lightweight yet sturdy nylon, this backpack now has extra padding for structure and comfort.\",\n    \"imagen\": \"https://cdn.shopify.com/s/files/1/0505/7121/products/Game_On_Tennis_Backpack_Captain_1_HR_1024x1024.jpg?v=1545940306\",\n    \"precioPromedio\": 400000,\n    \"genero\": \"F\",\n    \"calificacionPromedio\": 4.5,\n    \"tiendas\": [\n        {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\",\n            \"nombre\": \"Éxito Unicentro\",\n            \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n            \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona\",\n            \"paginaWeb\": \"https://www.exito.com/\",\n            \"telefono\": \"2138208\"\n        }\n    ],\n    \"categorias\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid store to a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La tienda con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"tiendas",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request adds an invalid (non-existent) store in the database to a gift. That is, the gift will be tried to be sold in a store that doesn't exist in the system. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Add an invalid store to a gift",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"tiendas",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La tienda con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a store to an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/tiendas/{{tienda_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"tiendas",
+						"{{tienda_id_1}}"
+					]
+				},
+				"description": "This request emulates the case in which a store, with id {{tienda_id}} is added to an invalid (non-existant) gift. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Add a store to an invalid gift",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/tiendas/{{tienda_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000",
+								"tiendas",
+								"{{tienda_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n   \"statusCode\": 404,\n   \"message\": \"The gift with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a store of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/{{tienda_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"tiendas",
+						"{{tienda_id_1}}"
+					]
+				},
+				"description": "This request returns a particular store, with id {{tienda_id}}, in which a gift, with id {{regalo_id}}, is sold."
+			},
+			"response": [
+				{
+					"name": "Get a store of a gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/{{tienda_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"tiendas",
+								"{{tienda_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\",\n    \"nombre\": \"Éxito Unicentro\",\n    \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n    \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona\",\n    \"paginaWeb\": \"https://www.exito.com/\",\n    \"telefono\": \"2138208\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid store of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La tienda con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"tiendas",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request emulates the case in which an invalid store is tried to be retrieved for the gift with id {{regalo_id}}. The API responds with the 404 error."
+			},
+			"response": [
+				{
+					"name": "Get an invalid store of a gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"tiendas",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La tienda con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a store of an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/tiendas/{{tienda_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"tiendas",
+						"{{tienda_id_1}}"
+					]
+				},
+				"description": "This request emulates the case in which the store with id {{tienda_id_1}} is tried to be retrieved for an invalid gift. The API responds with the 404 error."
+			},
+			"response": [
+				{
+					"name": "Get a store of an invalid gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/tiendas/{{tienda_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000",
+								"tiendas",
+								"{{tienda_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a store non-associated to a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La tienda con el ID dado no se encuentra asociada al regalo\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/{{tienda_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"tiendas",
+						"{{tienda_id_2}}"
+					]
+				},
+				"description": "This request corresponds to the case in which a store of id {{tienda_id}} that is not associated to a gift with id {{regalo_id}} is tried to be retrieved. In this case, the store exists in the database, but this gift is not sold in that particular store (i.e. the store has not yer been linked to this particular gift). The API responds with the 412 error."
+			},
+			"response": [
+				{
+					"name": "Get a store non-associated to a gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/{{tienda_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"tiendas",
+								"{{tienda_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"La tienda con el ID dado no se encuentra asociada al regalo\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all stores of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"tiendas"
+					]
+				},
+				"description": "Gets all the stores in which a given gift, with id {{regalo_id}}, is sold."
+			},
+			"response": [
+				{
+					"name": "Get all stores of a gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"tiendas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\",\n        \"nombre\": \"Éxito Unicentro\",\n        \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n        \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona\",\n        \"paginaWeb\": \"https://www.exito.com/\",\n        \"telefono\": \"2138208\"\n    },\n    {\n        \"id\": \"28f05d0e-1275-11ed-861d-0242ac120028\",\n        \"nombre\": \"Pepe Ganga Unicentro\",\n        \"imagen\": \"https://i0.wp.com/cdn.pinkermoda.com/pinkermoda/2016/01/Pepeganga.jpg?ssl=1\",\n        \"descripcion\": \"El Pepe Ganga de Unicentro es la tienda de juguetes mas completa de tu zona, no dudes en venir\",\n        \"paginaWeb\": \"https://www.pepeganga.com/\",\n        \"telefono\": \"2138208\"   \n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get all stores of an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/tiendas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"tiendas"
+					]
+				},
+				"description": "This request documents what happens when all the stores from an invalid gift (i.e. non-existent in the database) are tried to be retrieved. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Get all stores of an invalid gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/tiendas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000",
+								"tiendas"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The gift with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update stores of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": \"{{tienda_id_2}}\"\n    }\n    \n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"tiendas"
+					]
+				},
+				"description": "This request updates the stores in which a gift, with id {{regalo_id}}, is sold. That is, it adds a new store to a gift."
+			},
+			"response": [
+				{
+					"name": "Update stores of a gift",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n    \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"tiendas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n        \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n        \"nombre\": \"Chocolates Ferrero-Rocher\",\n        \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n        \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n        \"precioPromedio\": 20000,\n        \"genero\": \"N\",\n        \"calificacionPromedio\": 4.8,\n        \"tiendas\": [\n            {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\",\n            \"nombre\": \"Éxito Unicentro (nuevo nombre)\",\n            \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n            \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona (nueva descripcion)\",\n            \"paginaWeb\": \"https://www.exito.com/\",\n            \"telefono\": \"2138208\"\n            }\n        ],\n        \"categorias\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Update stores of an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n    \"id\": \"{{tienda_id_2}}\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/tiendas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"tiendas"
+					]
+				},
+				"description": "This request tries to update the stores of a gift, but the gift doesn't exist in the db (it is invalid). The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Update stores of an invalid gift",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n    \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/tiendas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000",
+								"tiendas"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update invalid stores of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La tienda con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"tiendas"
+					]
+				},
+				"description": "This request tries to update the stores of a gift with id {{regalo_id}}, but those stores don't exist in the db (they are invalid). The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Update invalid stores of a gift",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n   {\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\n   }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"tiendas"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La tienda con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a store of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/{{tienda_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"tiendas",
+						"{{tienda_id_2}}"
+					]
+				},
+				"description": "This request deletes a store, with id {{tienda_id_1}}, from a given gift, with id {{regalo_id}}."
+			},
+			"response": [
+				{
+					"name": "Delete a store of a gift",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/{{tienda_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"tiendas",
+								"{{tienda_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a store of an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/tiendas/{{tienda_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"tiendas",
+						"{{tienda_id_2}}"
+					]
+				},
+				"description": "This request tries to delete a store, with id {{tienda_id_1}}, from an invalid gift (i.e. non-existent in the db). The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Delete a store of an invalid gift",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/tiendas/{{tienda_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000",
+								"tiendas",
+								"{{tienda_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid store of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La tienda con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"tiendas",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request tries to delete an invalid store (i.e. non existent in the db) from a gift, with id {{regalo_id}}. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Delete an invalid store of a gift",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"tiendas",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La tienda con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a store non-associated to a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La tienda con el ID dado no se encuentra asociada al regalo\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/{{tienda_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"tiendas",
+						"{{tienda_id_1}}"
+					]
+				},
+				"description": "This request tries to delete a store (with id {{tienda_id_2}}) that, despite existing in the db, is not associated to the gift with id {{regalo_id}}. The API responds with a 412 error."
+			},
+			"response": [
+				{
+					"name": "Delete a store non-associated to a gift",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/tiendas/{{tienda_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"tiendas",
+								"{{tienda_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The store with the given id is not associated to the gift\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

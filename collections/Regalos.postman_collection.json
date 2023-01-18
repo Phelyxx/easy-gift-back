@@ -1,0 +1,563 @@
+{
+	"info": {
+		"_postman_id": "f85c31ea-ccbf-46ef-b6db-2cb13f8e7b04",
+		"name": "Regalos",
+		"description": "Documentation for the resource Gift",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11506868"
+	},
+	"item": [
+		{
+			"name": "Add a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"regalo_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos"
+					]
+				},
+				"description": "This request creates a new gift. The API returns the created resource with the assigned id."
+			},
+			"response": [
+				{
+					"name": "Add a gift",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all gifts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of regalos > ' + 0, function () {",
+							"   var data = pm.response.json()",
+							"   pm.expect(data.length).to.greaterThan(0)",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos"
+					]
+				},
+				"description": "This request gets all the available gifts. The API returns all the gifts. It is important to highlight that, as a design decision, these gifts also include the stores (Tiendas) where they are sold and the categories they belong to (which are the many to many relations of the Gift resource)."
+			},
+			"response": [
+				{
+					"name": "Get all gifts",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n        \"nombre\": \"Chocolates Ferrero-Rocher\",\n        \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n        \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n        \"precioPromedio\": 20000,\n        \"genero\": \"N\",\n        \"calificacionPromedio\": 4.8,\n        \"tiendas\": [\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\",\n                \"nombre\": \"Éxito Unicentro\",\n                \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n                \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona\",\n                \"paginaWeb\": \"https://www.exito.com/\",\n                \"telefono\": \"2138208\"\n            },\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0582ac120028\",\n                \"nombre\": \"Panamericana Unicentro\",\n                \"imagen\": \"https://comadrejas.co/wp-content/uploads/2018/05/PANAMERICANA-1.jpg\",\n                \"descripcion\": \"La Panamericana de Unicentro tiene todo lo que necesitas para tu oficina, colegio o casa. Encuentra fabulosos regalos tambien\",\n                \"paginaWeb\": \"https://www.panamericana.com.co/\",\n                \"telefono\": \"2138006\"\n            }\n        ],\n        \"categorias\": [\n            {\n                \"id\": \"14f05d0e-1275-28ed-861d-0582ac120028\",\n                \"nombre\": \"Dulces\"\n            }\n        ]\n    },\n    {\n        \"id\": \"14f05d0e-1275-11ed-861d-0242ac120004\",\n        \"nombre\": \"LEGO Orchid Plant Decor Building Set\",\n        \"descripcion\": \"Build your own orchid – Enjoy a rewarding building project as you create a plant display to enhance your home or office decor with this LEGO Orchid building kit.\",\n        \"imagen\": \"https://m.media-amazon.com/images/I/71iY-AO2D1L._AC_SL1500_.jpg\",\n        \"precioPromedio\": 300000,\n        \"genero\": \"N\",\n        \"calificacionPromedio\": 4.95,\n        \"tiendas\": [\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\",\n                \"nombre\": \"Éxito Unicentro\",\n                \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n                \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona\",\n                \"paginaWeb\": \"https://www.exito.com/\",\n                \"telefono\": \"2138208\"\n            },\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0582ac120028\",\n                \"nombre\": \"Panamericana Unicentro\",\n                \"imagen\": \"https://comadrejas.co/wp-content/uploads/2018/05/PANAMERICANA-1.jpg\",\n                \"descripcion\": \"La Panamericana de Unicentro tiene todo lo que necesitas para tu oficina, colegio o casa. Encuentra fabulosos regalos tambien\",\n                \"paginaWeb\": \"https://www.panamericana.com.co/\",\n                \"telefono\": \"2138006\"\n            }\n        ],\n        \"categorias\": [\n            {\n                \"id\": \"14f05d0e-1235-28ed-861d-0582ac120028\",\n                \"nombre\": \"Juguetes\"\n            }\n\n        ]\n    },\n    {\n        \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\",\n        \"nombre\": \"Sulley Plushy\",\n        \"descripcion\": \"Bring the Disney fun home with this detailed and soft classic Sulley plush\",\n        \"imagen\": \"https://m.media-amazon.com/images/I/71oG5XPgqOS._AC_SL1500_.jpg\",\n        \"precioPromedio\": 50000,\n        \"genero\": \"N\",\n        \"calificacionPromedio\": 4.75,\n        \"tiendas\": [\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\",\n                \"nombre\": \"Éxito Unicentro\",\n                \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n                \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona\",\n                \"paginaWeb\": \"https://www.exito.com/\",\n                \"telefono\": \"2138208\"\n            },\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0582ac120028\",\n                \"nombre\": \"Panamericana Unicentro\",\n                \"imagen\": \"https://comadrejas.co/wp-content/uploads/2018/05/PANAMERICANA-1.jpg\",\n                \"descripcion\": \"La Panamericana de Unicentro tiene todo lo que necesitas para tu oficina, colegio o casa. Encuentra fabulosos regalos tambien\",\n                \"paginaWeb\": \"https://www.panamericana.com.co/\",\n                \"telefono\": \"2138006\"\n            }\n        ],\n        \"categorias\": [\n            {\n                \"id\": \"14f05d0e-1235-28ed-861d-0582ac120028\",\n                \"nombre\": \"Juguetes\"\n            }\n\n        ]\n    },\n    {\n        \"id\": \"14f05d0e-1275-11ed-861d-0286ac120032\",\n        \"nombre\": \"Ame & Lulu Game On Tennis Backpack\",\n        \"descripcion\": \" It's game time with the new and improved Game On Tennis Backpack. Made out of a lightweight yet sturdy nylon, this backpack now has extra padding for structure and comfort.\",\n        \"imagen\": \"https://cdn.shopify.com/s/files/1/0505/7121/products/Game_On_Tennis_Backpack_Captain_1_HR_1024x1024.jpg?v=1545940306\",\n        \"precioPromedio\": 400000,\n        \"genero\": \"F\",\n        \"calificacionPromedio\": 4.5,\n        \"tiendas\": [\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\",\n                \"nombre\": \"Éxito Unicentro\",\n                \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n                \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona\",\n                \"paginaWeb\": \"https://www.exito.com/\",\n                \"telefono\": \"2138208\"\n            },\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0582ac120028\",\n                \"nombre\": \"Panamericana Unicentro\",\n                \"imagen\": \"https://comadrejas.co/wp-content/uploads/2018/05/PANAMERICANA-1.jpg\",\n                \"descripcion\": \"La Panamericana de Unicentro tiene todo lo que necesitas para tu oficina, colegio o casa. Encuentra fabulosos regalos tambien\",\n                \"paginaWeb\": \"https://www.panamericana.com.co/\",\n                \"telefono\": \"2138006\"\n            }\n        ],\n        \"categorias\": [\n            {\n                \"id\": \"14f05d0e-1235-28ed-861d-0582ac120029\",\n                \"nombre\": \"Deportes\"\n            },\n            {\n                \"id\": \"14f05d0e-1235-28ed-861d-0582ac120030\",\n                \"nombre\": \"Moda\"\n            }\n        ]\n    },\n    {\n        \"id\": \"14f05d0e-1275-11ed-861d-0058ac120004\",\n        \"nombre\": \"Coup boardgame\",\n        \"descripcion\": \"In Coup, your goal is to be the last player standing. Each player starts the game with 2 influence, represented by facedown character cards. Each turn, a player can take an action from either a set list, or a special action based on what character cards they were secretly dealt.\",\n        \"imagen\": \"https://m.media-amazon.com/images/I/61JeFo5pWVL._AC_SY879_.jpg\",\n        \"precioPromedio\": 40000,\n        \"genero\": \"N\",\n        \"calificacionPromedio\": 5,\n        \"tiendas\": [\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\",\n                \"nombre\": \"Éxito Unicentro\",\n                \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n                \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona\",\n                \"paginaWeb\": \"https://www.exito.com/\",\n                \"telefono\": \"2138208\"\n            },\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0582ac120028\",\n                \"nombre\": \"Panamericana Unicentro\",\n                \"imagen\": \"https://comadrejas.co/wp-content/uploads/2018/05/PANAMERICANA-1.jpg\",\n                \"descripcion\": \"La Panamericana de Unicentro tiene todo lo que necesitas para tu oficina, colegio o casa. Encuentra fabulosos regalos tambien\",\n                \"paginaWeb\": \"https://www.panamericana.com.co/\",\n                \"telefono\": \"2138006\"\n            }\n        ],\n        \"categorias\": [\n            {\n                \"id\": \"14f05d0e-1235-28ed-861d-0582ac120028\",\n                \"nombre\": \"Juguetes\"\n            }\n\n        ]\n    }\n]\n"
+				}
+			]
+		},
+		{
+			"name": "Get one gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}"
+					]
+				},
+				"description": "This request gets the gift with the given gift_id. The API returns that particular gift. It is important to highlight that, as a design decision, this gift also include the stores (Tiendas) where it is sold and the categories it belongs to (which are the many to many relations of the Gift resource)."
+			},
+			"response": [
+				{
+					"name": "Get one gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gifts/{{gift_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gifts",
+								"{{gift_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0286ac120032\",\n    \"nombre\": \"Ame & Lulu Game On Tennis Backpack\",\n    \"descripcion\": \" It's game time with the new and improved Game On Tennis Backpack. Made out of a lightweight yet sturdy nylon, this backpack now has extra padding for structure and comfort.\",\n    \"imagen\": \"https://cdn.shopify.com/s/files/1/0505/7121/products/Game_On_Tennis_Backpack_Captain_1_HR_1024x1024.jpg?v=1545940306\",\n    \"precioPromedio\": 400000,\n    \"genero\": \"F\",\n    \"calificacionPromedio\": 4.5,\n    \"tiendas\": [\n        {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac120028\",\n            \"nombre\": \"Éxito Unicentro\",\n            \"imagen\": \"https://unicentromedellin.com.co/media/zoo/images/Exito_91e9ded5ee4e3ede178bf1bc051a1d43.jpg\",\n            \"descripcion\": \"El Exito de Unicentro es la tienda mas completa para hacer mercado en tu zona\",\n            \"paginaWeb\": \"https://www.exito.com/\",\n            \"telefono\": \"2138208\"\n        },\n        {\n            \"id\": \"14f05d0e-1275-11ed-861d-0582ac120028\",\n            \"nombre\": \"Panamericana Unicentro\",\n            \"imagen\": \"https://comadrejas.co/wp-content/uploads/2018/05/PANAMERICANA-1.jpg\",\n            \"descripcion\": \"La Panamericana de Unicentro tiene todo lo que necesitas para tu oficina, colegio o casa. Encuentra fabulosos regalos tambien\",\n            \"paginaWeb\": \"https://www.panamericana.com.co/\",\n            \"telefono\": \"2138006\"\n        }\n    ],\n    \"categorias\": [\n        {\n            \"id\": \"14f05d0e-1235-28ed-861d-0582ac120029\",\n            \"nombre\": \"Deportes\"\n        },\n        {\n            \"id\": \"14f05d0e-1235-28ed-861d-0582ac120030\",\n            \"nombre\": \"Moda\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request is the case in which an invalid gift (non-existent) is tried to be retrieved. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Get an invalid gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher blancos (new name)\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}"
+					]
+				},
+				"description": "This request updates the gift with the given gift_id. The API returns the updated resource with the id it was assigned when created."
+			},
+			"response": [
+				{
+					"name": "Update a gift",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher blancos (new name)\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"image\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n    \"nombre\": \"Chocolates Ferrero-Rocher blancos (new name)\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"image\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}"
+				}
+			]
+		},
+		{
+			"name": "Update an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Regalo no existe\",\n    \"descripcion\": \"Este regalo no existe en la base de datos.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 0.1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request corresponds to the case in which an invalid (non-existent) gift is tried to be updated. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Update an invalid gift",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Regalo no existe\",\n    \"descripcion\": \"Este regalo no existe en la base de datos.\",\n    \"imagen\": \"no_existe.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 0.1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}"
+					]
+				},
+				"description": "This request deletes a gift. The API responds with a 204 HTTP code."
+			},
+			"response": [
+				{
+					"name": "Delete a gift",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request corresponds to the case in which an invalid (non-existent) gift is tried to be deleted. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Delete an invalid gift",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

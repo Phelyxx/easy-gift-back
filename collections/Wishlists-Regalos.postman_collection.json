@@ -1,0 +1,1332 @@
+{
+	"info": {
+		"_postman_id": "e2b22829-2780-445e-bff1-341b6d2db2ef",
+		"name": "Wishlists-Regalos",
+		"description": "This collection represents the association of wishlists and gifts. That is, the gifts that a wishlist has.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11506868"
+	},
+	"item": [
+		{
+			"name": "Create gift 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"regalo_id_1\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos"
+					]
+				},
+				"description": "This request creates a new gift. It is necessary to test the petitions following up. Once created, the gift's id is saved in the {regalo_id_1}} variable."
+			},
+			"response": [
+				{
+					"name": "Create gift 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}"
+				}
+			]
+		},
+		{
+			"name": "Create gift 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"regalo_id_2\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"LEGO Orchid Plant Decor Building Set\",\n    \"descripcion\": \"Build your own orchid – Enjoy a rewarding building project as you create a plant display to enhance your home or office decor with this LEGO Orchid building kit.\",\n    \"imagen\": \"https://m.media-amazon.com/images/I/71iY-AO2D1L._AC_SL1500_.jpg\",\n    \"precioPromedio\": 300000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.95\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos"
+					]
+				},
+				"description": "This request creates a new gift. It is necessary to test the petitions following up. Once created, the gift's id is saved in the {regalo_id_2}} variable."
+			},
+			"response": [
+				{
+					"name": "Create gift 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"LEGO Orchid Plant Decor Building Set\",\n    \"descripcion\": \"Build your own orchid – Enjoy a rewarding building project as you create a plant display to enhance your home or office decor with this LEGO Orchid building kit.\",\n    \"imagen\": \"https://m.media-amazon.com/images/I/71iY-AO2D1L._AC_SL1500_.jpg\",\n    \"precioPromedio\": 300000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.95\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0242ac120004\",\n    \"nombre\": \"LEGO Orchid Plant Decor Building Set\",\n    \"descripcion\": \"Build your own orchid – Enjoy a rewarding building project as you create a plant display to enhance your home or office decor with this LEGO Orchid building kit.\",\n    \"imagen\": \"https://m.media-amazon.com/images/I/71iY-AO2D1L._AC_SL1500_.jpg\",\n    \"precioPromedio\": 300000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.95\n}"
+				}
+			]
+		},
+		{
+			"name": "Create a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"wishlist_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"nombre\": \"Regalos de Amor y Amistad\",\n   \"descripcion\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en amor y amistad.\",\n   \"imagen\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/wishlists",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists"
+					]
+				},
+				"description": "This request creates a new wishlist. It is necessary to test the petitions following up. Once created, the wishlist's id is saved in the {wishlist_id}} variable."
+			},
+			"response": [
+				{
+					"name": "Add a wishlist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"nombre\": \"Regalos de Amor y Amistad\",\n   \"descripcion\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en amor y amistad.\",\n   \"imagen\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wishlists",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"name\": \"Regalos de Amor y Amistad\",\n    \"description\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en amor y amistad.\",\n    \"image\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a gift to a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/{{regalo_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}",
+						"regalos",
+						"{{regalo_id_1}}"
+					]
+				},
+				"description": "This request adds a gift to a wishlist. The API returns the gift with the given {{regalo_id}} with the recently added gift, with id {{wishlist_id}}."
+			},
+			"response": [
+				{
+					"name": "Add a Gift to a Wishlist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/{{regalo_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}",
+								"regalos",
+								"{{regalo_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"3794eabd-2755-494d-8bec-c56839178f18\",\n    \"nombre\": \"Regalos de Amor y Amistad\",\n    \"descripcion\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en amor y amistad.\",\n    \"imagen\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\",\n    \"regalos\": [\n        {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n            \"nombre\": \"Chocolates Ferrero-Rocher\",\n            \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n            \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n            \"precioPromedio\": 20000,\n            \"genero\": \"N\",\n            \"calificacionPromedio\": 4.8\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid gift to a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}",
+						"regalos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request adds an invalid (non-existent) gift in the database to a wishlist. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Add an invalid gift to a wishlist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}",
+								"regalos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The gift with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a gift to an invalid wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La wishlist con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000/regalos/{{regalo_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"00000000-0000-0000-0000-000000000000",
+						"regalos",
+						"{{regalo_id_1}}"
+					]
+				},
+				"description": "This request emulates the case in which a gift, with id {{regalo_id}} is added to an invalid (non-existant) wishlist. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Add a gift to an invalid wishlist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000/regalos/{{regalo_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"00000000-0000-0000-0000-000000000000",
+								"regalos",
+								"{{regalo_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The wishlist with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a gift from a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/{{regalo_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}",
+						"regalos",
+						"{{regalo_id_1}}"
+					]
+				},
+				"description": "This request returns a particular gift, with given id {{regalo_id_1}}, for a particular wishlist, with id {{wishlist_id}}."
+			},
+			"response": [
+				{
+					"name": "Get a gift from a wishlist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/{{regalo_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}",
+								"regalos",
+								"{{regalo_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid gift of a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}",
+						"regalos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request emulates the case in which an invalid gift is tried to be retrieved for the wishlist with id {{wishlist_id}}. The API responds with the 404 error."
+			},
+			"response": [
+				{
+					"name": "Get an invalid gift for a wishlist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}",
+								"regalos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a gift of an invalid wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La wishlist con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000/regalos/{{regalo_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"00000000-0000-0000-0000-000000000000",
+						"regalos",
+						"{{regalo_id_1}}"
+					]
+				},
+				"description": "This request emulates the case in which the gift with id {{regalo_id_1}} is tried to be retrieved for an invalid wishlist. The API responds with the 404 error."
+			},
+			"response": [
+				{
+					"name": "Get a gift for an invalid wishlist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000/regalos/{{regalo_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"00000000-0000-0000-0000-000000000000",
+								"regalos",
+								"{{regalo_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La wishlist con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a gift non-associated to a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no se encuentra asociado a la wishlist\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/{{regalo_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}",
+						"regalos",
+						"{{regalo_id_2}}"
+					]
+				},
+				"description": "This request corresponds to the case in which a gift of id {{gift_id}} that is not associated to a wishlist with id {{wishlist_id}} is tried to be retrieved. In this case, the gift exists in the database, but has not been linked to the particular wishlist. The API responds with the 412 error."
+			},
+			"response": [
+				{
+					"name": "Get a gift non-associated to a wishlist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/{{regalo_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}",
+								"regalos",
+								"{{regalo_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"El regalo con el ID dado no se encuentra asociado a la wishlist\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all gifts from a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}",
+						"regalos"
+					]
+				},
+				"description": "Gets all the gifts that a given wishlist, with id {{wishlist_id}}, has."
+			},
+			"response": [
+				{
+					"name": "Get all gifts from a wishlist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}",
+								"regalos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n        \"nombre\": \"Chocolates Ferrero-Rocher\",\n        \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n        \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n        \"precioPromedio\": 20000,\n        \"genero\": \"N\",\n        \"calificacionPromedio\": 4.8\n    },\n    {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac120004\",\n            \"nombre\": \"LEGO Orchid Plant Decor Building Set\",\n            \"descripcion\": \"Build your own orchid – Enjoy a rewarding building project as you create a plant display to enhance your home or office decor with this LEGO Orchid building kit.\",\n            \"imagen\": \"https://m.media-amazon.com/images/I/71iY-AO2D1L._AC_SL1500_.jpg\",\n            \"precioPromedio\": 300000,\n            \"genero\": \"N\",\n            \"calificacionPromedio\": 4.95\n        },\n        {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\",\n            \"nombre\": \"Sulley Plushy\",\n            \"descripcion\": \"Bring the Disney fun home with this detailed and soft classic Sulley plush\",\n            \"imagen\": \"https://m.media-amazon.com/images/I/71oG5XPgqOS._AC_SL1500_.jpg\",\n            \"precioPromedio\": 50000,\n            \"genero\": \"N\",\n            \"calificacionPromedio\": 4.75\n        }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get all gifts of an invalid wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La wishlist con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"00000000-0000-0000-0000-000000000000",
+						"regalos"
+					]
+				},
+				"description": "This request documents what happens when all the gifts from an invalid wishlist (i.e. non-existent in the database) are tried to be retrieved. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Get all gifts of an invalid wishlist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000/gifts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"00000000-0000-0000-0000-000000000000",
+								"gifts"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The wishlist with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update gifts of a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n            \"id\": \"{{regalo_id_2}}\"\n        }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}",
+						"regalos"
+					]
+				},
+				"description": "This request updates the gifts of a wishlist with id {{wishlist_id}}."
+			},
+			"response": [
+				{
+					"name": "Update gifts of a wishlist",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac120004\"\n        },\n        {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\"\n        }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}",
+								"regalos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"3794eabd-2755-494d-8bec-c56839178f18\",\n    \"name\": \"Regalos de Amor y Amistad\",\n    \"description\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en amor y amistad.\",\n    \"image\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\",\n    \"regalos\": [\n        {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac120004\",\n            \"name\": \"LEGO Orchid Plant Decor Building Set (new name)\",\n            \"description\": \"Build your own orchid – Enjoy a rewarding building project as you create a plant display to enhance your home or office decor with this LEGO Orchid building kit.\",\n            \"image\": \"https://m.media-amazon.com/images/I/71iY-AO2D1L._AC_SL1500_.jpg\",\n            \"avgPrice\": 300000,\n            \"gender\": \"N\",\n            \"avgRating\": 4.95\n        },\n        {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\",\n            \"name\": \"Sulley Plushy (new name)\",\n            \"description\": \"Bring the Disney fun home with this detailed and soft classic Sulley plush\",\n            \"image\": \"https://m.media-amazon.com/images/I/71oG5XPgqOS._AC_SL1500_.jpg\",\n            \"avgPrice\": 50000,\n            \"gender\": \"N\",\n            \"avgRating\": 4.75\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Update invalid gifts of a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\n   },\n   {\n       \"id\": \"11111111-2222-aaaa-ssss-sdsdsdsdsdsd\"\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}",
+						"regalos"
+					]
+				},
+				"description": "This request tries to update the gifts of a wishlist with id {{wishlist_id}}, but those gifts don't exist in the db (they are invalid). The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Update invalid gifts of a wishlist",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n   {\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\n   },\n   {\n       \"id\": \"11111111-2222-aaaa-ssss-sdsdsdsdsdsd\"\n   }\n]\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}",
+								"regalos"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The gifts with the given ids were not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update gifts of an invalid wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La wishlist con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n            \"id\": \"{{regalo_id_2}}\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"00000000-0000-0000-0000-000000000000",
+						"regalos"
+					]
+				},
+				"description": "This request tries to update the gifts of a wishlist, but the wishlist doesn't exist in the db (it is invalid). The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Update gifts of an invalid wishlist",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac120004\"\n        },\n        {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\"\n        }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"00000000-0000-0000-0000-000000000000",
+								"regalos"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The wishlist with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a gift of a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/{{regalo_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}",
+						"regalos",
+						"{{regalo_id_2}}"
+					]
+				},
+				"description": "This request deletes a gift, with id {{regalo_id_1}}, from a given wishlist, with id {{wishlist_id}}."
+			},
+			"response": [
+				{
+					"name": "Delete a gift of a wishlist",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/{{regalo_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}",
+								"regalos",
+								"{{regalo_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a gift of an invalid wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La wishlist con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000/regalos/{{regalo_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"00000000-0000-0000-0000-000000000000",
+						"regalos",
+						"{{regalo_id_2}}"
+					]
+				},
+				"description": "This request tries to delete a gift, with id {{regalo_id_1}}, from an invalid wishlist (i.e. non-existent in the db). The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Delete a gift of an invalid wishlist",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000/regalos/{{regalo_id_2}}.",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"00000000-0000-0000-0000-000000000000",
+								"regalos",
+								"{{regalo_id_2}}."
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La wishlist con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid gift of a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}",
+						"regalos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request tries to delete an invalid gift (i.e. non existent in the db) from a wishlist, with id {{wishlist_id}}. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Delete an invalid gift of a wishlist",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}",
+								"regalos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a gift non-associated to a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no se encuentra asociado a la wishlist\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/{{regalo_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}",
+						"regalos",
+						"{{regalo_id_1}}"
+					]
+				},
+				"description": "This request tries to delete a gift (with id {{regalo_id_3}}) that, despite existing in the db, is not associated to the wishlist with id {{wishlist_id}}. The API responds with a 412 error."
+			},
+			"response": [
+				{
+					"name": "Delete a gift non-associated to a wishlist",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}/regalos/{{regalo_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}",
+								"regalos",
+								"{{regalo_id_1}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The gift with the given id is not associated to the wishlist.\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

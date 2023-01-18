@@ -1,0 +1,1279 @@
+{
+	"info": {
+		"_postman_id": "32309720-727b-4e02-903b-3adf736a63c3",
+		"name": "Categorias-Regalos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17534101"
+	},
+	"item": [
+		{
+			"name": "Agregar una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"categoria_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\": \"Moda\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias"
+					]
+				},
+				"description": "Esta petición retorna el recurso agregado."
+			},
+			"response": [
+				{
+					"name": "Agregar una categoria",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nombre\": \"moda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"moda\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"regalo_id_1\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos"
+					]
+				},
+				"description": "This request creates a new gift. The API returns the created resource with the assigned id."
+			},
+			"response": [
+				{
+					"name": "Add a gift",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar un regalo a una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/{{regalo_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id}}",
+						"regalos",
+						"{{regalo_id_1}}"
+					]
+				},
+				"description": "Esta petición retorna el recurso agregado."
+			},
+			"response": [
+				{
+					"name": "Agregar un regalo a una categoria",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/{{regalo_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"regalos",
+								"{{regalo_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"fechaCreacion\": \"2022-09-01\",\n    \"regalos\": [\n        {\n            \"name\": \"Chocolates Ferrero-Rocher\",\n            \"description\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n            \"image\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n            \"avgPrice\": 20000,\n            \"gender\": \"N\",\n            \"avgRating\": 4.8\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar un regalo que no existe a una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The regalo with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id}}",
+						"regalos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no existe."
+			},
+			"response": [
+				{
+					"name": "Agregar un regalo que no existe a una categoria",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"regalos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se ha encontrado el regalo con el id dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar un regalo a una categoria que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The categoria with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/00000000-0000-0000-0000-000000000000/regalos/{{regalo_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"00000000-0000-0000-0000-000000000000",
+						"regalos",
+						"{{regalo_id_1}}"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no existe."
+			},
+			"response": [
+				{
+					"name": "Agregar un regalo a una categoria que no existe",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/00000000-0000-0000-0000-000000000000/{{regalo_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"00000000-0000-0000-0000-000000000000",
+								"{{regalo_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se ha encontrado la categoria con el id dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un regalo de una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/{{regalo_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id}}",
+						"regalos",
+						"{{regalo_id_1}}"
+					]
+				},
+				"description": "Esta petición retorna el recurso solicitado."
+			},
+			"response": [
+				{
+					"name": "Obtener un regalo de una categoria",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/{{regalo_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"regalos",
+								"{{regalo_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": \"1\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un regalo que no existe de una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The regalo with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id}}",
+						"regalos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no existe."
+			},
+			"response": [
+				{
+					"name": "Obtener un regalo que no existe de una categoria",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"regalos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se ha encontrado el regalo con el id dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un regalo de una categoria que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The categoria with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/00000000-0000-0000-0000-000000000000/regalos/{{regalo_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"00000000-0000-0000-0000-000000000000",
+						"regalos",
+						"{{regalo_id_1}}"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no existe."
+			},
+			"response": [
+				{
+					"name": "Obtener un regalo de una categoria que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/00000000-0000-0000-0000-000000000000/{{regalo_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"00000000-0000-0000-0000-000000000000",
+								"{{regalo_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se ha encontrado la categoria con el id dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un regalo que no está asociado a una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The regalo with the given id is not associated to the categoria\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/{{regalo_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id}}",
+						"regalos",
+						"{{regalo_id_2}}"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no está asociado."
+			},
+			"response": [
+				{
+					"name": "Obtener un regalo que no está asociado a una categoria",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/{{regalo_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"regalos",
+								"{{regalo_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"El regalo con el id dado no está asociado una categoria\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener los regalos de una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id}}",
+						"regalos"
+					]
+				},
+				"description": "Esta petición retorna los recursos solicitados."
+			},
+			"response": [
+				{
+					"name": "Obtener los regalos de una categoria",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"regalos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "[\r\n   {\r\n       \"id\": 1,\r\n        \"name\": \"Chocolates Ferrero-Rocher\",\r\n        \"description\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\r\n        \"image\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\r\n        \"avgPrice\": 20000,\r\n        \"gender\": \"N\",\r\n        \"avgRating\": 4.8\r\n   }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener los regalos de una categoria que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The categoria with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/00000000-0000-0000-0000-000000000000/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"00000000-0000-0000-0000-000000000000",
+						"regalos"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no existe."
+			},
+			"response": [
+				{
+					"name": "Obtener los regalos de una categoria que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/00000000-0000-0000-0000-000000000000/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"00000000-0000-0000-0000-000000000000",
+								"regalos"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se ha encontrado la categoria con el id dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar la lista de regalos de una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{regalo_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id}}",
+						"regalos"
+					]
+				},
+				"description": "Esta petición retorna los recursos modificados."
+			},
+			"response": [
+				{
+					"name": "Actualizar la lista de regalos de una categoria",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{regalo_id_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"regalos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"fechaCreacion\": \"2022-09-01\",\n    \"regalos\": [\n        {\n            \"name\": \"Chocolates Ferrero-Rocher\",\n            \"description\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n            \"image\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n            \"avgPrice\": 20000,\n            \"gender\": \"N\",\n            \"avgRating\": 4.8\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar los regalos que no existen de una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The regalo with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id}}",
+						"regalos"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no existe."
+			},
+			"response": [
+				{
+					"name": "Actualizar los regalos que no existen de una categoria",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"regalos"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se ha encontrado el regalo con el id dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar los regalos de una categoria que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The categoria with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{regalo_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/categorias/00000000-0000-0000-0000-000000000000/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"00000000-0000-0000-0000-000000000000",
+						"regalos"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no existe."
+			},
+			"response": [
+				{
+					"name": "Actualizar los regalos de una categoria que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{regalo_id_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias/00000000-0000-0000-0000-000000000000/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"00000000-0000-0000-0000-000000000000",
+								"regalos"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se ha encontrado la categoria con el id dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un regalo de una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/{{regalo_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id}}",
+						"regalos",
+						"{{regalo_id_2}}"
+					]
+				},
+				"description": "Esta petición retorna el código 204."
+			},
+			"response": [
+				{
+					"name": "Borrar un regalo de una categoria",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/{{regalo_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"regalos",
+								"{{regalo_id_2}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar un regalo de una categoria que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The categoria with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/00000000-0000-0000-0000-000000000000/regalos/{{regalo_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"00000000-0000-0000-0000-000000000000",
+						"regalos",
+						"{{regalo_id_2}}"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no existe."
+			},
+			"response": [
+				{
+					"name": "Borrar un regalo de una categoria que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/00000000-0000-0000-0000-000000000000/regalos/{{regalo_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"00000000-0000-0000-0000-000000000000",
+								"regalos",
+								"{{regalo_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se ha encontrado el regalo con el id dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un regalo que no existe de una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The regalo with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id}}",
+						"regalos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no existe"
+			},
+			"response": [
+				{
+					"name": "Borrar un regalo que no existe de una categoria",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"regalos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se ha encontrado el regalo con el id dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un regalo que no esta asociado a una categoria",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The regalo with the given id is not associated to the categoria\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/{{regalo_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"{{categoria_id}}",
+						"regalos",
+						"{{regalo_id_1}}"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no está asociado"
+			},
+			"response": [
+				{
+					"name": "Borrar un regalo que no esta asociado a una categoria",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categorias/{{categoria_id}}/regalos/{{regalo_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias",
+								"{{categoria_id}}",
+								"regalos",
+								"{{regalo_id_1}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"El regalo con el id dado no está asociado una categoria\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "{{categoria_id}}",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "{{regalo_id_1}}",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "{{regalo_id_2}}",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,1331 @@
+{
+	"info": {
+		"_postman_id": "88f0fc52-3c11-4fcb-b796-563bc556b256",
+		"name": "Regalos-Categorias",
+		"description": "Documentation of the Gifts-Categories relation. That is, the categories that a gift has.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11506868"
+	},
+	"item": [
+		{
+			"name": "Create category 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"categoria_id_1\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Moda\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias"
+					]
+				},
+				"description": "This request creates a new category. It is necessary to test the petitions following up. Once created, the category's id is saved in the {{categoria_id_1}} variable."
+			},
+			"response": [
+				{
+					"name": "Create category 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Moda\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"3794eabd-2755-494d-8bec-c56839178f18\",\n    \"nombre\": \"Moda\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create category 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"categoria_id_2\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Deportes\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias"
+					]
+				},
+				"description": "This request creates a new category. It is necessary to test the petitions following up. Once created, the category's id is saved in the {{categoria_id_2}} variable."
+			},
+			"response": [
+				{
+					"name": "Create category 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Deportes\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"3794eabd-2755-494d-8bec-c62839178500\",\n    \"nombre\": \"Deportes\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"regalo_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos"
+					]
+				},
+				"description": "This request creates a new gift. It is necessary to test the petitions following up. Once created, the gift's id is saved in the {{regalo_id}} variable."
+			},
+			"response": [
+				{
+					"name": "Create gift",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n    \"nombre\": \"Chocolates Ferrero-Rocher\",\n    \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n    \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n    \"precioPromedio\": 20000,\n    \"genero\": \"N\",\n    \"calificacionPromedio\": 4.8\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a category to a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/{{categoria_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"categorias",
+						"{{categoria_id_1}}"
+					]
+				},
+				"description": "This request adds a category to a gift. The API returns the gift with the given {{regalo_id}} with the new created category, with id {{categoria_id}}."
+			},
+			"response": [
+				{
+					"name": "Add a category to a gift",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/{{categoria_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"categorias",
+								"{{categoria_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0286ac120032\",\n    \"nombre\": \"Ame & Lulu Game On Tennis Backpack\",\n    \"descripcion\": \" It's game time with the new and improved Game On Tennis Backpack. Made out of a lightweight yet sturdy nylon, this backpack now has extra padding for structure and comfort.\",\n    \"imagen\": \"https://cdn.shopify.com/s/files/1/0505/7121/products/Game_On_Tennis_Backpack_Captain_1_HR_1024x1024.jpg?v=1545940306\",\n    \"precioPromedio\": 400000,\n    \"genero\": \"F\",\n    \"calificacionPromedio\": 4.5,\n    \"tiendas\": [],\n    \"categorias\": [\n        {\n            \"id\": \"14f05d0e-1235-28ed-861d-0582ac120029\",\n            \"nombre\": \"Deportes\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid category to a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La categoria con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"categorias",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request adds an invalid (non-existent) category in the database to a gift. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Add an invalid category to a gift",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"categorias",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La categoria con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a category to an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/categorias/{{categoria_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"categorias",
+						"{{categoria_id_1}}"
+					]
+				},
+				"description": "This request emulates the case in which a category, with id {{categoria_id}} is added to an invalid (non-existant) gift. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Add a category to an invalid gift",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/categorias/{{categoria_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000",
+								"categorias",
+								"{{categoria_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a category of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/{{categoria_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"categorias",
+						"{{categoria_id_1}}"
+					]
+				},
+				"description": "This request returns a particular category, with given id {{categoria_id_1}}, for a particular gift, with id {{regalo_id}}."
+			},
+			"response": [
+				{
+					"name": "Get a category of a gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gifts/{{museum_id}}/categorias/{{categoria_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gifts",
+								"{{museum_id}}",
+								"categorias",
+								"{{categoria_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1235-28ed-861d-0582ac120029\",\n    \"nombre\": \"deportes\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid category of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La categoria con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"categorias",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request emulates the case in which an invalid category is tried to be retrieved for the {{regalo_id}} gift. The API responds with the 404 error."
+			},
+			"response": [
+				{
+					"name": "Get an invalid category of a gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"categorias",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La categoria con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a category of an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/categorias/{{categoria_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"categorias",
+						"{{categoria_id_1}}"
+					]
+				},
+				"description": "This request emulates the case in which the category with id {{categoria_id_1}} is tried to be retrieved for an invalid gift. The API responds with the 404 error."
+			},
+			"response": [
+				{
+					"name": "Get a category of an invalid gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/categorias/{{categoria_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000",
+								"categorias",
+								"{{categoria_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a category non-associated to a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La categoria con el ID dado no se encuentra asociada al regalo\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/{{categoria_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"categorias",
+						"{{categoria_id_2}}"
+					]
+				},
+				"description": "This request corresponds to the case in which a category of id {{categoria_id}} that is not associated to a gift with id {{regalo_id}} is tried to be retrieved. In this case, the category exists in the database, but has not been linked to the particular gift. The API responds with the 412 error."
+			},
+			"response": [
+				{
+					"name": "Get a category non-associated to a gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/{{categoria_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"categorias",
+								"{{categoria_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"La categoria con el ID dado no se encuentra asociada al regalo\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all categories of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"categorias"
+					]
+				},
+				"description": "Gets all the categories that a given gift, with id {{regalo_id}}, has."
+			},
+			"response": [
+				{
+					"name": "Get all categories of a gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"categorias"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"14f05d0e-1235-28ed-861d-0582ac120029\",\n        \"nombre\": \"Deportes\"\n    },\n    {\n        \"id\": \"14f05d0e-1235-28ed-861d-0582ac120030\",\n        \"nombre\": \"Moda\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get all categories of an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"categorias"
+					]
+				},
+				"description": "This request documents what happens when all the categories from an invalid gift (i.e. non-existent in the database) are tried to be retrieved. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Get all categories of an invalid gift",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000",
+								"categorias"
+							]
+						}
+					},
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update categories of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": \"{{categoria_id_2}}\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"categorias"
+					]
+				},
+				"description": "This request updates the categories of a gift with id {{regalo_id}}."
+			},
+			"response": [
+				{
+					"name": "Update categories of a gift",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": \"14f05d0e-1235-28ed-861d-0582ac120029\"\n    },\n    {\n        \"id\": \"14f05d0e-1235-28ed-861d-0582ac120030\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"categorias"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"14f05d0e-1275-11ed-861d-0286ac120032\",\n    \"nombre\": \"Ame & Lulu Game On Tennis Backpack\",\n    \"descripcion\": \" It's game time with the new and improved Game On Tennis Backpack. Made out of a lightweight yet sturdy nylon, this backpack now has extra padding for structure and comfort.\",\n    \"imagen\": \"https://cdn.shopify.com/s/files/1/0505/7121/products/Game_On_Tennis_Backpack_Captain_1_HR_1024x1024.jpg?v=1545940306\",\n    \"precioPromedio\": 400000,\n    \"genero\": \"F\",\n    \"calificacionPromedio\": 4.5,\n    \"tiendas\": [],\n    \"categorias\": [\n        {\n            \"id\": \"14f05d0e-1235-28ed-861d-0582ac120029\",\n            \"nombre\": \"Deporte\"\n        },\n        {\n            \"id\": \"14f05d0e-1235-28ed-861d-0582ac120030\",\n            \"nombre\": \"Joyeria\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Update invalid categories of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La categoria con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    {\n        \"id\": \"00000000-0000-0000-0000-000000000001\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"categorias"
+					]
+				},
+				"description": "This request tries to update the categories of a gift with id {{regalo_id}}, but those categories don't exist in the db (they are invalid). The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Update invalid categories of a gift",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    {\n        \"id\": \"00000000-0000-0000-0000-000000000001\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"categorias"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La categoria con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update categories of an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": \"{{categoria_id_2}}\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"categorias"
+					]
+				},
+				"description": "This request tries to update the categories of a gift, but the gift doesn't exist in the db (it is invalid). The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Update categories of an invalid gift",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": \"14f05d0e-1235-28ed-861d-0582ac120029\"\n    },\n    {\n        \"id\": \"14f05d0e-1235-28ed-861d-0582ac120030\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000",
+								"categorias"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a category of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/{{categoria_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"categorias",
+						"{{categoria_id_2}}"
+					]
+				},
+				"description": "This request deletes a category, with id {{categoria_id_2}}, from a given gift, with id {{regalo_id}}."
+			},
+			"response": [
+				{
+					"name": "Delete a category of a gift",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/{{categoria_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"categorias",
+								"{{categoria_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a category of an invalid gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El regalo con el ID dado no fue encontrado\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/categorias/{{categoria_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"00000000-0000-0000-0000-000000000000",
+						"categorias",
+						"{{categoria_id_2}}"
+					]
+				},
+				"description": "This request tries to delete a category, with id {{categoria_id_1}}, from an invalid gift (i.e. non-existent in the db). The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Delete a category of an invalid gift",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/00000000-0000-0000-0000-000000000000/categorias/{{categoria_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"00000000-0000-0000-0000-000000000000",
+								"categorias",
+								"{{categoria_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El regalo con el ID dado no fue encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid category of a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La categoria con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"categorias",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request tries to delete an invalid category (i.e. non existent in the db) from a gift, with id {{regalo_id}}. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Delete an invalid category of a gift",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"categorias",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La categoria con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a category non-associated to a gift",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La categoria con el ID dado no se encuentra asociada al regalo\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/{{categoria_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"regalos",
+						"{{regalo_id}}",
+						"categorias",
+						"{{categoria_id_1}}"
+					]
+				},
+				"description": "This request tries to delete a category (with id {{categoria_id_3}}) that, despite existing in the db, is not associated to the gift with id {{regalo_id}}. The API responds with a 412 error."
+			},
+			"response": [
+				{
+					"name": "Delete a category non-associated to a gift",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regalos/{{regalo_id}}/categorias/{{categoria_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"regalos",
+								"{{regalo_id}}",
+								"categorias",
+								"{{categoria_id_1}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n   \"statusCode\": 412,\n   \"message\": \"La categoria con el ID dado no se encuentra asociada al regalo\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

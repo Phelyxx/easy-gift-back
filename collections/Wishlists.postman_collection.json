@@ -1,0 +1,569 @@
+{
+	"info": {
+		"_postman_id": "2b8cf469-3445-4d72-8a06-7ec9a1b72cd0",
+		"name": "Wishlists",
+		"description": "Documentation for the resource Wishlist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11506868"
+	},
+	"item": [
+		{
+			"name": "Add a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"wishlist_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"nombre\": \"Regalos de Amor y Amistad\",\n   \"descripcion\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en amor y amistad.\",\n   \"imagen\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/wishlists",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists"
+					]
+				},
+				"description": "This request creates a new wishlist. The API returns the created resource with the assigned id."
+			},
+			"response": [
+				{
+					"name": "Add a wishlist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"Regalos de Amor y Amistad\",\n   \"description\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en amor y amistad.\",\n   \"image\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wishlists",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"3794eabd-2755-494d-8bec-c56839178f18\",\n    \"nombre\": \"Regalos de Amor y Amistad\",\n    \"descripcion\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en amor y amistad.\",\n    \"imagen\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all wishlists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of wishlists > ' + 0, function () {",
+							"   var data = pm.response.json()",
+							"   pm.expect(data.length).to.greaterThan(0)",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists"
+					]
+				},
+				"description": "This request gets all the available wishlists. The API returns all the wishlists. It is important to highlight that, as a design decision, these wishlists also include the gifts (regalos) they have (which is the many to many relation of the Wishlist resource)."
+			},
+			"response": [
+				{
+					"name": "Get all wishlists",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"3794eabd-2755-494d-8bec-c56839178f18\",\n        \"nombre\": \"Regalos de Amor y Amistad\",\n        \"descripcion\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en amor y amistad.\",\n        \"imagen\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\",\n        \"regalos\": [\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n                \"nombre\": \"Chocolates Ferrero-Rocher\",\n                \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n                \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n                \"precioPromedio\": 20000,\n                \"genero\": \"N\",\n                \"calificacionPromedio\": 4.8\n            },\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac120004\",\n                \"nombre\": \"LEGO Orchid Plant Decor Building Set\",\n                \"descripcion\": \"Build your own orchid – Enjoy a rewarding building project as you create a plant display to enhance your home or office decor with this LEGO Orchid building kit.\",\n                \"imagen\": \"https://m.media-amazon.com/images/I/71iY-AO2D1L._AC_SL1500_.jpg\",\n                \"precioPromedio\": 300000,\n                \"genero\": \"N\",\n                \"calificacionPromedio\": 4.95\n            },\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\",\n                \"nombre\": \"Sulley Plushy\",\n                \"descripcion\": \"Bring the Disney fun home with this detailed and soft classic Sulley plush\",\n                \"imagen\": \"https://m.media-amazon.com/images/I/71oG5XPgqOS._AC_SL1500_.jpg\",\n                \"precioPromedio\": 50000,\n                \"genero\": \"N\",\n                \"calificacionPromedio\": 4.75\n            }\n        ]\n    },\n    {\n        \"id\": \"3794eabd-2755-494d-8bec-c56839178f18\",\n        \"nombre\": \"Regalos de Cumpleaños\",\n        \"descripcion\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran de cumpleaños.\",\n        \"imagen\": \"https://media.istockphoto.com/photos/birthday-cake-with-happy-birthday-banner-picture-id1201202312?k=20&m=1201202312&s=612x612&w=0&h=JA1f22KxeNzkF2UFZdrqrXHsoqTmsThJoawJbbTqbAI=\",\n        \"regalos\": [\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0286ac120032\",\n                \"nombre\": \"Ame & Lulu Game On Tennis Backpack\",\n                \"descripcion\": \" It's game time with the new and improved Game On Tennis Backpack. Made out of a lightweight yet sturdy nylon, this backpack now has extra padding for structure and comfort.\",\n                \"imagen\": \"https://cdn.shopify.com/s/files/1/0505/7121/products/Game_On_Tennis_Backpack_Captain_1_HR_1024x1024.jpg?v=1545940306\",\n                \"precioPromedio\": 400000,\n                \"genero\": \"F\",\n                \"calificacionPromedio\": 4.5\n            },\n            {\n                \"id\": \"14f05d0e-1275-11ed-861d-0058ac120004\",\n                \"nombre\": \"Coup boardgame\",\n                \"descripcion\": \"In Coup, your goal is to be the last player standing. Each player starts the game with 2 influence, represented by facedown character cards. Each turn, a player can take an action from either a set list, or a special action based on what character cards they were secretly dealt.\",\n                \"imagen\": \"https://m.media-amazon.com/images/I/61JeFo5pWVL._AC_SY879_.jpg\",\n                \"precioPromedio\": 40000,\n                \"genero\": \"N\",\n                \"calificacionPromedio\": 5\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get one wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}"
+					]
+				},
+				"description": "This request gets the wishlist with the given wishlist_id. The API returns that particular wishlist. It is important to highlight that, as a design decision, this wishlist also include the gifts (regalos) it has."
+			},
+			"response": [
+				{
+					"name": "Get one wishlist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"3794eabd-2755-494d-8bec-c56839178f18\",\n    \"nombre\": \"Regalos de Amor y Amistad\",\n    \"descripcion\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en amor y amistad.\",\n    \"imagen\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\",\n    \"regalos\": [\n        {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac120032\",\n            \"nombre\": \"Chocolates Ferrero-Rocher\",\n            \"descripcion\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n            \"imagen\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n            \"precioPromedio\": 20000,\n            \"genero\": \"N\",\n            \"calificacionPromedio\": 4.8\n        },\n        {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac120004\",\n            \"nombre\": \"LEGO Orchid Plant Decor Building Set\",\n            \"descripcion\": \"Build your own orchid – Enjoy a rewarding building project as you create a plant display to enhance your home or office decor with this LEGO Orchid building kit.\",\n            \"imagen\": \"https://m.media-amazon.com/images/I/71iY-AO2D1L._AC_SL1500_.jpg\",\n            \"precioPromedio\": 300000,\n            \"genero\": \"N\",\n            \"calificacionPromedio\": 4.95\n        },\n        {\n            \"id\": \"14f05d0e-1275-11ed-861d-0242ac124032\",\n            \"nombre\": \"Sulley Plushy\",\n            \"descripcion\": \"Bring the Disney fun home with this detailed and soft classic Sulley plush\",\n            \"imagen\": \"https://m.media-amazon.com/images/I/71oG5XPgqOS._AC_SL1500_.jpg\",\n            \"precioPromedio\": 50000,\n            \"genero\": \"N\",\n            \"calificacionPromedio\": 4.75\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La wishlist con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request is the case in which an invalid wishlist (non-existent) is tried to be retrieved. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Get an invalid wishlist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La wishlist con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Regalos de San Valentín (new name)\",\n    \"descripcion\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en San Valentín (new description).\",\n    \"imagen\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}"
+					]
+				},
+				"description": "This request updates the wishlist with the given wishlist_id. The API returns the updated resource with the id it was assigned when created."
+			},
+			"response": [
+				{
+					"name": "Update wishlist",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Regalos de San Valentín (new name)\",\n    \"description\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en San Valentín (new description).\",\n    \"image\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"3794eabd-2755-494d-8bec-c56839178f18\",\n    \"name\": \"Regalos de San Valentín (new name)\",\n    \"description\": \"Esta lista contiene los regalos que he visto en EasyGift y que me gustaría que me regalaran en San Valentín (new description).\",\n    \"image\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update an invalid wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La wishlist con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Lista que no existe\",\n    \"descripcion\": \"Esta lista no existe porque el id no esta en la base de datos.\",\n    \"imagen\": \"https://depor.com/resizer/4aNeLEjqTDRdhAgVHAmwEJHZHAk=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/QGDCXPIF5FGFTJNZWQBVDEFPBY.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request corresponds to the case in which an invalid (non-existent) wishlist is tried to be updated. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Update invalid wishlist",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Lista que no existe\",\n    \"descripcion\": \"Esta lista no existe porque el id no esta en la base de datos.\",\n    \"imagen\": \"imagen_no_existe.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La wishlist con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"{{wishlist_id}}"
+					]
+				},
+				"description": "This request deletes a wishlist. The API responds with a 204 HTTP code."
+			},
+			"response": [
+				{
+					"name": "Delete a wishlist",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/{{wishlist_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"{{wishlist_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid wishlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La wishlist con el ID dado no fue encontrada\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wishlists",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "This request corresponds to the case in which an invalid (non-existent) wishlist is tried to be deleted. The API responds with a 404 error."
+			},
+			"response": [
+				{
+					"name": "Delete an invalid wishlist",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wishlists/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wishlists",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La wishlist con el ID dado no fue encontrada\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

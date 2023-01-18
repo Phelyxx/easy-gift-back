@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "680f7633-dfba-4e0b-93f0-bd0127429c8c",
+		"name": "resenas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12491341"
+	},
+	"item": [
+		{
+			"name": "add resena",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"resena_id\", data.id);\r",
+							"pm.globals.set(\"resena_id_f\", 0);\r",
+							"\r",
+							"pm.test('Status code is 201', function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Observaciones\",\r\n    \"descripcion\": \"El producto es muy lindo, tamaño adecuadi :V\",\r\n    \"fecha\": \"2020-06-06\",\r\n    \"calificacion\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/resena",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resena"
+					]
+				},
+				"description": "La peticion de una nueva reseña, La api da crea el recurso con la nueva id."
+			},
+			"response": []
+		},
+		{
+			"name": "get all resena",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of resenas > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/resena",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resena"
+					]
+				},
+				"description": "La peticion de obtener todas las reseñas, La api da un json con la lista de todas las reseñas. "
+			},
+			"response": []
+		},
+		{
+			"name": "get one resena",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/resena/{{resena_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resena",
+						"{{resena_id}}"
+					]
+				},
+				"description": "La peticion de una reseña, La api da un json del recurso con la id proporcionada. "
+			},
+			"response": []
+		},
+		{
+			"name": "get invalid resena",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The resena with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/resena/9cfc1055-8c7a-49a4-b49c-1b2a89d2bd6f",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resena",
+						"9cfc1055-8c7a-49a4-b49c-1b2a89d2bd6f"
+					]
+				},
+				"description": "La peticion de una reseña que no existe, La api da retorna el error de la resepña inexistente."
+			},
+			"response": []
+		},
+		{
+			"name": "update resena",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"fallos\",\r\n    \"descripcion\": \"El producto es muy lindo, tamaño adecuadi pero a la semana presento fallos\",\r\n    \"fecha\": \"2022-06-07\",\r\n    \"calificacion\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/resena/{{resena_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resena",
+						"{{resena_id}}"
+					]
+				},
+				"description": "La peticion de una actualizar una reseña, La api da actualiza el recurso con la id."
+			},
+			"response": []
+		},
+		{
+			"name": "update invalida resena",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The resena with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"fallos\",\r\n    \"descripcion\": \"El producto es muy lindo, tamaño adecuadi pero a la semana presento fallos\",\r\n    \"fecha\": \"2022-06-07\",\r\n    \"calificacion\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/resena/9cfc1055-8c7a-49a4-b49c-1b2a89d2bd6f",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resena",
+						"9cfc1055-8c7a-49a4-b49c-1b2a89d2bd6f"
+					]
+				},
+				"description": "La peticion de actulizar una reseña que no existe, La api da retorna que la reseña no existe."
+			},
+			"response": []
+		},
+		{
+			"name": "delete resena",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/resena/{{resena_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resena",
+						"{{resena_id}}"
+					]
+				},
+				"description": "La peticion de eliminar una reseña, La api retorna que fue excitoso y un cuerpo vacio."
+			},
+			"response": []
+		},
+		{
+			"name": "delete invaluid resena",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The resena with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/resena/9cfc1055-8c7a-49a4-b49c-1b2a89d2bd6f",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resena",
+						"9cfc1055-8c7a-49a4-b49c-1b2a89d2bd6f"
+					]
+				},
+				"description": "La peticion de eliminar una reseña que no existe, La api retorna un error que indica que no fue encontrada la reseña."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": " http://localhost:3000/api/v1"
+		}
+	]
+}

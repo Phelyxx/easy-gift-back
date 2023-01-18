@@ -1,0 +1,1364 @@
+{
+	"info": {
+		"_postman_id": "fc776305-a018-482d-8e8c-00f47feab2c9",
+		"name": "Usuario-Categoria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15053500"
+	},
+	"item": [
+		{
+			"name": "Agregar usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"usuario_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"nombre\": \"Juana\",\n   \"apellido\": \"Castro\",\n   \"email\": \"juana.castro@gmail.com\",\n   \"bio\": \"Me gusta la astronomia y jugar con mis perros\",\n   \"usuario\": \"juanacastro01\",\n   \"edad\": 21,\n   \"cumpleanios\" : \"2001-01-15\",\n   \"rutaFotoPerfil\": \"https://c8.alamy.com/zooms/9/52c3ea49892f4e5789b31cadac8aa969/2gefnr1.jpg\",\n   \"rutaFotoPortada\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\n   \"genero\": \"Femenino\",\n   \"presupuesto\": 300000,\n   \"disponibilidadDeTiempo\": \"Poco\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/usuarios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"nombre\": \"Juana\",\n   \"apellido\": \"Castro\",\n   \"bio\": \"Me gusta la astronomia y jugar con mis perros\",\n   \"usuario\": \"juanacastro01\",\n   \"cumpleaños\": \"2000-12-10\",\n   \"edad\": 21,\n   \"rutaFotoPerfil\": \"user/fotos/fotoPerfil.jpg\",\n   \"rutaFotoPortada\": \"user/fotos/fotoPortada.jpg\",\n   \"genero\": \"Femenino\",\n   \"presupuesto\": 300000,\n   \"disponibilidadTiempo\": \"Poco\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": \"310b0872-1d9a-4575-8bb5-8f14dfb86c1c\",\n    \"nombre\": \"Juana\",\n    \"apellido\": \"Castro\",\n    \"bio\": \"Me gusta la astronomia y jugar con mis perros\",\n    \"usuario\": \"juanacastro01\",\n    \"cumpleaños\": \"2000-12-10\",\n    \"edad\": 21,\n    \"rutaFotoPerfil\": \"user/fotos/fotoPerfil.jpg\",\n    \"rutaFotoPortada\": \"user/fotos/fotoPortada.jpg\",\n    \"genero\": \"Femenino\",\n    \"presupuesto\": 300000,\n    \"disponibilidadTiempo\": \"Poco\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar una categoria1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"categoria_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\": \"Moda\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias"
+					]
+				},
+				"description": "Esta petición retorna el recurso agregado."
+			},
+			"response": [
+				{
+					"name": "Agregar una categoria",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nombre\": \"moda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"moda\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar una categoria2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"categoria_id_2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\": \"Deportes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias"
+					]
+				},
+				"description": "Esta petición retorna el recurso agregado."
+			},
+			"response": [
+				{
+					"name": "Agregar una categoria",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nombre\": \"moda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"moda\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar categoria a usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}/categorias/{{categoria_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}",
+						"categorias",
+						"{{categoria_id_1}}"
+					]
+				},
+				"description": "La peticion de añadir una categoria a un usuario, la api añade la categoria con el id dado al usuario con el id dado."
+			},
+			"response": [
+				{
+					"name": "Agregar categoria a usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categoria/{{categoria_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categoria",
+								"{{categoria_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\":\"1\",\r\n    \"nombre\": \"alan\",\r\n    \"email\": \"alan@gmail.com\",\r\n    \"bio\": \"-\",\r\n    \"usuario\" : \"alan123\",\r\n    \"cumpleaos\": \"20-01-2001\",\r\n    \"edad\" : 21,\r\n    \"rutaFotoPerfil\": \"-----\",\r\n    \"rutaFotoPortada\" : \"-----\",\r\n    \"genero\" : \"homre\",\r\n    \"presupuesto\" : 300000,\r\n    \"disponibilidadDeTiempo\": 200,\r\n    \"intereses\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombre\": \"Moda\"\r\n        }\r\n    ]\r\n    }\r\n\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar categoria que no existe a un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La categoria con el id dado no existe\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}/categorias/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}",
+						"categorias",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "La peticion de añadir una categoria inexistente a un usuario, la api indica que no existe la categoria dada ."
+			},
+			"response": [
+				{
+					"name": "Agregar categoria que no existe a un usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categoria/{{categoria_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categoria",
+								"{{categoria_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"la categoria no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar categoria a un usuario que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El usuario con el id dado no existe\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000/categorias/{{categoria_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"00000000-0000-0000-0000-000000000000",
+						"categorias",
+						"{{categoria_id_1}}"
+					]
+				},
+				"description": "La peticion de añadir una categoria a un usaurio inexistente, la api indica que el usuario no existe."
+			},
+			"response": [
+				{
+					"name": "Agregar categoria a un usuario que no existe",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categoria/{{categoria_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categoria",
+								"{{categoria_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"el usuario no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener categoria de un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}/categorias/{{categoria_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}",
+						"categorias",
+						"{{categoria_id_1}}"
+					]
+				},
+				"description": "La peticion de obtiene una categoria de usuario, la api muestra la categoria asociada al usuario."
+			},
+			"response": [
+				{
+					"name": "Obtener categoria de un usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categoria/{{categoria_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categoria",
+								"{{categoria_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": null,
+					"cookie": [],
+					"body": " {\r\n            \"id\": 1,\r\n            \"nombre\": \"Moda\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener categoria que no existe de un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La categoria con el id dado no existe\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}/categorias/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}",
+						"categorias",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener categoria que no existe de un usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categoria/{{categoria_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categoria",
+								"{{categoria_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"la categoria no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener categoria de un usuario que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El usuario con el id dado no existe\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000/categorias/{{categoria_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"00000000-0000-0000-0000-000000000000",
+						"categorias",
+						"{{categoria_id_1}}"
+					]
+				},
+				"description": "La peticion de obtiene una categoria de un usuario inexistente, la api muestra que el usuario no exisrte."
+			},
+			"response": [
+				{
+					"name": "Obtener categoria de un usuario que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categoria/{{categoria_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categoria",
+								"{{categoria_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"el usuario no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener categoria no asociada a un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La categoria con el id dado no esta asociada al usuario\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}/categorias/{{categoria_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}",
+						"categorias",
+						"{{categoria_id_2}}"
+					]
+				},
+				"description": "La peticion de obtiene una categoria de un usuario al que no esat asociada, la api muestra que el usuario no estan asoaciadas."
+			},
+			"response": [
+				{
+					"name": "get categoria no asociada a el usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categoria/{{categoria_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categoria",
+								"{{categoria_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 412,
+					"_postman_previewlanguage": "Text",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"la categora dada no esta asociada a el uysuariio\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener categorias de un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}",
+						"categorias"
+					]
+				},
+				"description": "Se genera una peticon de obtener todas las categoria de un usuario dado, la api retorna un json con una lista de las categoria."
+			},
+			"response": [
+				{
+					"name": "Obtener categorias de un usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categorias"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": null,
+					"cookie": [],
+					"body": "[ {\r\n    \"id\": 1,\r\n   \"nombre\": \"Moda\"\r\n}\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener categorias de usuario que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El usuario con el id dado no existe\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"00000000-0000-0000-0000-000000000000",
+						"categorias"
+					]
+				},
+				"description": "Se genera una peticon de obtener todas las categorias de un usuario inexistente, la api retorna un error que dice que el usuario no existe"
+			},
+			"response": [
+				{
+					"name": "Obtener categorias de usuario que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categorias"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"el usuario no existe\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar lista de categorias",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{categoria_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}",
+						"categorias"
+					]
+				},
+				"description": "Se genera una peticon para actualizar la categoria con un id dado de un usuario dado, la api la categoria con la informacion actualizada."
+			},
+			"response": [
+				{
+					"name": "Actualizar lista de categorias",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{reseña_id_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categorias"
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[{\r\n    \"id\": \"1\",\r\n    \"nombre\": \"deporte\"\r\n\r\n}\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Actualizar categoria que no existe de un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La categoria con el id dado no existe\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}",
+						"categorias"
+					]
+				},
+				"description": "Se genera una peticon para actualizar la categoria inexistente de un usuario dado, la api notifica que la categoria no existe."
+			},
+			"response": [
+				{
+					"name": "Actualizar categoria que no existe de un usuario",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{reseña_id_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categorias"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"la categoria no fue econtrada\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar categorias de usuario que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El usuario con el id dado no existe\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{categoria_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000/categorias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"00000000-0000-0000-0000-000000000000",
+						"categorias"
+					]
+				},
+				"description": "Se genera una peticon para actualizar la categoria de un usuario inexistente , la api notifica que el usuario no existe."
+			},
+			"response": [
+				{
+					"name": "Actualizar categorias de usuario que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{reseña_id_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categorias"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"el usuario no fue econtrada\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar categoria de usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}/categorias/{{categoria_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}",
+						"categorias",
+						"{{categoria_id_2}}"
+					]
+				},
+				"description": "Se genera una peticion de eliminar una categoria de un usuario, la api elimina la categoria del usuario y no retorna mas informacionm."
+			},
+			"response": [
+				{
+					"name": "Eliminar categoria de usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categoria/{{categoria_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categoria",
+								"{{categoria_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar categoria de usuario que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El usuario con el id dado no existe\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000/categorias/{{categoria_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"00000000-0000-0000-0000-000000000000",
+						"categorias",
+						"{{categoria_id_2}}"
+					]
+				},
+				"description": "Se genera una peticion de eliminar una categoria inexistente de un usuario, la api notifica que la categoria no existe."
+			},
+			"response": [
+				{
+					"name": "Borrar categoria de usuario que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categoria/{{categoria_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categoria",
+								"{{categoria_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"la categoria no existe\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar categoria que no existe de un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La categoria con el id dado no existe\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}/categorias/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}",
+						"categorias",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Se genera una peticion de eliminar una categoria de un usuarioinexistente , la api notifica que el usuario no existe."
+			},
+			"response": [
+				{
+					"name": "Borrar categoria que no existe de un usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categoria/{{categoria_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categoria",
+								"{{categoria_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"el usuario no existe\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar categoria no asociada a un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La categoria con el id dado no esta asociada al usuario\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/{{usuario_id}}/categorias/{{categoria_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"{{usuario_id}}",
+						"categorias",
+						"{{categoria_id_2}}"
+					]
+				},
+				"description": "Se hace la peticion de eliminar una categoria de un usuarioal que no esta asociado, la api notifica que esta peticion es erronea"
+			},
+			"response": [
+				{
+					"name": "Borrar categoria no asociada a un usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/{{usuarip_id}}/categoria/{{categoria_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"{{usuarip_id}}",
+								"categoria",
+								"{{categoria_id}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"la categoria no esta asociado el usuario\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "<Basic Auth Username>",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "<Basic Auth Password>",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

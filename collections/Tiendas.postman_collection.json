@@ -1,0 +1,729 @@
+{
+	"info": {
+		"_postman_id": "4b4cb25c-f782-40f6-bb7c-07b21e597af7",
+		"name": "Tiendas",
+		"description": "Documentación para el recurso de Tienda.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21289193"
+	},
+	"item": [
+		{
+			"name": "Add a tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"tienda_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe.png\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":301321\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tiendas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a tienda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe.png\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":301321\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tiendas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"143as3g6-uj32iSsdAW-E2123ASD-dsaEhgu\", \r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe.png\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":301321\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all tiendas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of tiendas > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tiendas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all tiendas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tiendas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n    \r\n    {\r\n        \"nombre\":\"Pepeganga\",\r\n        \"imagen\":\"path/pepe.png\",\r\n        \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n        \"paginaWeb\":\"www.pepeganga.com\",\r\n        \"telefono\":301321,\r\n        \"ubicacion\":[\r\n            {\r\n            \"latitud\":14.1912,\r\n            \"longitud\":29.1305,\r\n            \"direccion\":\"Calle 20 # 82-52 Local 437 - 138 - 139\",\r\n            \"ciudad\":\"Bogota D.C\",\r\n            \"pais\":\"Colombia\",\r\n            \"codigoPostal\":\"110182\",\r\n            \"esActual\":true\r\n            }\r\n        ],\r\n        \"regalos\":[\r\n            {\r\n                \"id\": \"14f05d0e-1275-11ed-86dd-0242ac120032\",\r\n                \"nombre\":\"Regalo_1\",\r\n                \"imagen\":\"path/imagen.jpg\",\r\n                \"descripcion\":\"Descripcion del regalo\",\r\n                \"precioPromedio\":49.212,\r\n                \"genero\":\"genero_1\",\r\n                \"calificacionPromedio\":4.3\r\n            },\r\n                {\r\n                \"id\": \"14f05d0e-1275-11ed-86dd-0242ac120032\",\r\n                \"nombre\":\"Regalo_2\",\r\n                \"imagen\":\"path/imagen.jpg\",\r\n                \"descripcion\":\"Descripcion del regalo\",\r\n                \"precioPromedio\":4.4512,\r\n                \"genero\":\"genero_2\",\r\n                \"calificacionPromedio\":3.3\r\n            }\r\n        ]\r\n    } ,        \r\n    {\r\n        \"nombre\":\"Tienda_2\",\r\n        \"imagen\":\"path/tienda2.png\",\r\n        \"descripcion\":\"Una tienda de variedades.\",\r\n        \"paginaWeb\":\"www.tienda2.com\",\r\n        \"telefono\":30132141,\r\n        \"ubicacion\":[\r\n            {\r\n            \"latitud\":4.1912,\r\n            \"longitud\":9.1305,\r\n            \"direccion\":\"Calle 3 # 82-52 Local 1 - 138 - 139\",\r\n            \"ciudad\":\"Medellin\",\r\n            \"pais\":\"Colombia\",\r\n            \"codigoPostal\":\"123382\",\r\n            \"esActual\":true\r\n            }\r\n        ],\r\n        \"regalos\":[\r\n            {\r\n                \"id\": \"14f05d0e-142175-11ed-86dd-0242ac120032\",\r\n                \"nombre\":\"Regalo_3\",\r\n                \"imagen\":\"path/imagen3.jpg\",\r\n                \"descripcion\":\"Descripcion del regalo\",\r\n                \"precioPromedio\":9.212,\r\n                \"genero\":\"genero_3\",\r\n                \"calificacionPromedio\":5.3\r\n            },\r\n                {\r\n                \"id\": \"14f05d0e-1275-11ed-86dd-0242ac120032\",\r\n                \"nombre\":\"Regalo_2\",\r\n                \"imagen\":\"path/imagen.jpg\",\r\n                \"descripcion\":\"Descripcion del regalo\",\r\n                \"precioPromedio\":4.4512,\r\n                \"genero\":\"genero_2\",\r\n                \"calificacionPromedio\":3.3\r\n            }\r\n        ]\r\n    }\r\n\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Get one tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/{{tienda_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"{{tienda_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one tienda",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/{{tienda_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"{{tienda_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "  \r\n{\r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe.png\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":301321,\r\n    \"ubicacion\":[\r\n        {\r\n        \"latitud\":14.1912,\r\n        \"longitud\":29.1305,\r\n        \"direccion\":\"Calle 20 # 82-52 Local 437 - 138 - 139\",\r\n        \"ciudad\":\"Bogota D.C\",\r\n        \"pais\":\"Colombia\",\r\n        \"codigoPostal\":\"110182\",\r\n        \"esActual\":true\r\n        }\r\n    ],\r\n    \"regalos\":[\r\n        {\r\n            \"id\": \"14f05d0e-1275-11ed-86dd-0242ac120032\",\r\n            \"nombre\":\"Regalo_1\",\r\n            \"imagen\":\"path/imagen.jpg\",\r\n            \"descripcion\":\"Descripcion del regalo\",\r\n            \"precioPromedio\":49.212,\r\n            \"genero\":\"genero_1\",\r\n            \"calificacionPromedio\":4.3\r\n        },\r\n            {\r\n            \"id\": \"14f05d0e-1275-11ed-86dd-0242ac120032\",\r\n            \"nombre\":\"Regalo_2\",\r\n            \"imagen\":\"path/imagen.jpg\",\r\n            \"descripcion\":\"Descripcion del regalo\",\r\n            \"precioPromedio\":4.4512,\r\n            \"genero\":\"genero_2\",\r\n            \"calificacionPromedio\":3.3\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The tienda with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid tienda",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/museums/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"museums",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The tienda with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe2.png(new path)\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":2990299\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/{{tienda_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"{{tienda_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update a tienda",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe.png(new path)\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":3013214321\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tiendas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"143as3g6-uj32iSsdAW-E2123ASD-dsaEhgu\", \r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe2.png(new path)\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":2990299\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update an invalid tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The tienda with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe.png(new path)\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":301321\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update an invalid tienda",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"nombre\":\"Pepeganga\",\r\n    \"imagen\":\"path/pepe.png(new path)\",\r\n    \"descripcion\":\"Una tienda de juguetes infantiles.\",\r\n    \"paginaWeb\":\"www.pepeganga.com\",\r\n    \"telefono\":3013214321\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tiendas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The museum with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a tienda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/{{tienda_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"{{tienda_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a tienda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/{{tienda_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"{{tienda_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Update an invalid tienda Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The tienda with the given id was not found\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tiendas/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tiendas",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update an invalid tienda Copy",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tiendas/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tiendas",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The museum with the given id was not found\"\r\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

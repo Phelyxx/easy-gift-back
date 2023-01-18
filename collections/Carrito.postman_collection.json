@@ -1,0 +1,572 @@
+{
+	"info": {
+		"_postman_id": "90f0f894-ff13-4c79-896f-ae5408eff16b",
+		"name": "Carrito",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17534101"
+	},
+	"item": [
+		{
+			"name": "Agregar un carrito",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"carrito_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"fechaCreacion\": \"2022-09-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/carritos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carritos"
+					]
+				},
+				"description": "Esta petición crea un carrito. El API retorna el recurso con el ID asignado."
+			},
+			"response": [
+				{
+					"name": "Agregar un carrito",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"fechaCreacion\": \"2022-09-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/carritos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"carritos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"fechaCreacion\": \"2022-09-01\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los carritos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of carritos > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/carritos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carritos"
+					]
+				},
+				"description": "Esta petición obtiene los carritos. El API retorna los recursos."
+			},
+			"response": [
+				{
+					"name": "Obtener todos los carritos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/carritos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"carritos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": 1,\r\n        \"fechaCreacion\": \"2022-09-01\",\r\n        \"regalos\": [\r\n            {\r\n                \"name\": \"Chocolates Ferrero-Rocher\",\r\n                \"description\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\r\n                \"image\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\r\n                \"avgPrice\": 20000,\r\n                \"gender\": \"N\",\r\n                \"avgRating\": 4.8\r\n            }\r\n        ]\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"fechaCreacion\": \"2022-09-02\"  \r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un carrito",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/carritos/{{carrito_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carritos",
+						"{{carrito_id}}"
+					]
+				},
+				"description": "Esta petición obtiene un carrito. El API retorna el recurso."
+			},
+			"response": [
+				{
+					"name": "Obtener un carrito",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/carritos/{{carrito_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"carritos",
+								"{{carrito_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"fechaCreacion\": \"2022-09-01\",\n    \"regalos\": [\n        {\n            \"name\": \"Chocolates Ferrero-Rocher\",\n            \"description\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n            \"image\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n            \"avgPrice\": 20000,\n            \"gender\": \"N\",\n            \"avgRating\": 4.8\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un carrito que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The carrito with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/carritos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carritos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no existe."
+			},
+			"response": [
+				{
+					"name": "Obtener un carrito que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/carritos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"carritos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se ha encontrado el carrito con el id dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un carrito",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fechaCreacion\": \"2022-09-02\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/carritos/{{carrito_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carritos",
+						"{{carrito_id}}"
+					]
+				},
+				"description": "Esta petición actualiza un carrito. El API retorna el recurso."
+			},
+			"response": [
+				{
+					"name": "Actualizar un carrito",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fechaCreacion\": \"2022-09-02\",\r\n    \"regalos\": [\r\n        {}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/carritos/{{carrito_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"carritos",
+								"{{carrito_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"fechaCreacion\": \"2022-09-02\",\n    \"regalos\": [\n            {\n                \"name\": \"Chocolates Ferrero-Rocher\",\n                \"description\": \"Ferrero Rocher is a chocolate sweet made by Italian chocolatier Ferrero SpA. The chocolates consist of a whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream including vegetable oil and covered in milk chocolate and chopped hazelnuts.\",\n                \"image\": \"https://cakestudio.in/cakestudio_polkadot/files/item/primary_photo/59f40839-df14-46b9-b6f9-404c6aba72de/ferrero-rocher-8-pcs_1599.jpg\",\n                \"avgPrice\": 20000,\n                \"gender\": \"N\",\n                \"avgRating\": 4.8\n            }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un carrito que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The carrito with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fechaCreacion\": \"2022-09-02\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/carritos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carritos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no existe."
+			},
+			"response": [
+				{
+					"name": "Actualizar un carrito que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fechaCreacion\": \"2022-09-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/carritos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"carritos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se ha encontrado el carrito con el id dado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un carrito",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/carritos/{{carrito_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carritos",
+						"{{carrito_id}}"
+					]
+				},
+				"description": "Esta petición borra un carrito con el id dado."
+			},
+			"response": [
+				{
+					"name": "Borrar un carrito",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/carritos/{{carrito_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"carritos",
+								"{{carrito_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar un carrito que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The carrito with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/carritos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carritos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				},
+				"description": "Esta petición retorna error ya que el recurso no existe."
+			},
+			"response": [
+				{
+					"name": "Borrar un carrito que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/carritos/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"carritos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se ha encontrado el carrito con el id dado\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}
